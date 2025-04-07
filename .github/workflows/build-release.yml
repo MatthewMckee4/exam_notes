@@ -38,7 +38,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           files: |
-            **/*notes.pdf
+            **/*.pdf
           tag_name: pdf-${{ github.sha }}
           name: PDF Build ${{ github.sha }}
           draft: false

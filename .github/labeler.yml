@@ -18,6 +18,10 @@ Systems Programming:
 - changed-files:
   - any-glob-to-any-file: notes/2024-2025/computing_science/4081_systems_programming/**
 
+Text as Data:
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4074_text_as_data/**
+
 Github Actions:
 - changed-files:
   - any-glob-to-any-file: .github/**

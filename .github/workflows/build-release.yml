@@ -44,7 +44,7 @@ jobs:
         with:
           files: |
             ./notes/2024-2025/computing_science/*/*-notes.pdf
-          tag_name: pdf-${{ github.event.head_commit.timestamp }}
+          tag_name: pdf-${{ github.sha }}
           name: PDF Build ${{ github.event.head_commit.timestamp }}
           draft: false
           prerelease: false 

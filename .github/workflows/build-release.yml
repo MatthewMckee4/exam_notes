@@ -1,0 +1,31 @@
+name: Build and Release PDFs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.tex'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            **/*.tex
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        if: github.ref == 'refs/heads/main'
+        with:
+          files: |
+            **/*.pdf
+          tag_name: pdf-${{ github.sha }}
+          name: PDF Build ${{ github.sha }}
+          draft: false
+          prerelease: false 

@@ -17,66 +17,94 @@
 
 \subsection*{The changing Internet}
 
-\begin{definition}
-    A Networked System is a cooperating set of autonomous computing devices that exchange data to perform some application goal
-\end{definition}
-\vspace{-15pt}
-\begin{note}
-    Channel constraints bound communications speed and reliability
-\end{note}
-\vspace{-15pt}
-\begin{definition}
-    The OSI Reference Model: Application Layer, Presentation Layer, Session Layer, Transport Layer, Network Layer, Data Link Layer, Physical Layer
-\end{definition}
-\vspace{-15pt}
-\begin{note}
-    Real networks don't follow the OSI Reference Model
-\end{note}
-\vspace{-8pt}
+\noindent \textbf{Networked System:} A cooperating set of autonomous computing devices that exchange data to perform some application goal
+
+\noindent \textbf{Channel constraints:} bound communications speed and reliability
+
+\noindent \textbf{OSI Reference Model:} Application Layer, Presentation Layer, Session Layer, Transport Layer, Network Layer, Data Link Layer, Physical Layer
+
+\noindent \textbf{Note:} Real networks don't follow the OSI Reference Model
 
 \noindent \textbf{Physical Layer:} Transmits raw bits over a physical medium. 
 
-\noindent Baseband Data Encoding:
-\noindent NRZ: 0 is represented by no change in voltage, 1 is represented by a change in voltage. Easy to miscount bits if long run of same value.
-\noindent Manchester: Encoding: 0 is represented by a transition from high to low, 1 is represented by a transition from low to high.
+\noindent \textbf{Baseband Data Encoding:}
+\noindent \textbf{NRZ:} 0 is represented by no change in voltage, 1 is represented by a change in voltage. Easy to miscount bits if long run of same value.
+\noindent \textbf{Manchester:} Encoding: 0 is represented by a transition from high to low, 1 is represented by a transition from low to high.
 
 \noindent Modulation: Allows multiple signals on a channel, modulated onto carriers of different frequency. Amplitude Modulation, Frequency Modulation, Phase Modulation.
 
-
 \noindent \textbf{Data Link Layer:} provides framing, addressing, media access control, error detection, and flow control.
 
-\noindent Framing: Separate the bitstream into meaningful frames of data.
+\noindent \textbf{Framing:} Separate the bitstream into meaningful frames of data.
 
-\noindent Media Access Control: How devices share the channel. If another transmission is active, the device must wait until the channel is free.
+\noindent \textbf{Media Access Control:} How devices share the channel. If another transmission is active, the device must wait until the channel is free.
 
 
 \noindent \textbf{Network Layer:} provides routing, addressing, and packet switching. Internet Protocol (IP).
 
-\noindent IPv4: 32-bit address space. Fragmentation difficult at high data rates.
+\noindent \textbf{IPv4:} 32-bit address space. Fragmentation difficult at high data rates.
 
-\noindent IPv6: 128-bit address space. No in-network fragmentation. Simple header format.
+\noindent \textbf{IPv6:} 128-bit address space. No in-network fragmentation. Simple header format.
 
-\noindent Routing: Each network administered separately - an autonomous system (AS), different technologies and policies.
-wh
-\noindent Inter-domain Rounting: Route advertisements are sent to the routing table of the destination. Border Gateway Protocol (BGP). Advertisements have AS-path.
+\noindent \textbf{Routing:} Each network administered separately - an autonomous system (AS), different technologies and policies.
+
+\noindent \textbf{Inter-domain Rounting:} Route advertisements are sent to the routing table of the destination. Border Gateway Protocol (BGP). Advertisements have AS-path.
 
 
 \noindent \textbf{Transport Layer:} provides end-to-end error recovery, flow control, and multiplexing.
 
-\noindent TCP: Connection-oriented, reliable, in-order delivery, flow control, congestion control.
+\noindent \textbf{TCP:} Connection-oriented, reliable, in-order delivery, flow control, congestion control.
 
-\noindent UDP: Connectionless, unreliable, out-of-order delivery, no flow control, no congestion control.
+\noindent \textbf{UDP:} Connectionless, unreliable, out-of-order delivery, no flow control, no congestion control.
 
 
 \noindent \textbf{Session Layer:} provides session establishment, maintenance, and termination.
 
-\noindent Managing Connections: How to find participants in a connection, how to setup and manage the connection.
+\noindent \textbf{Managing Connections:} How to find participants in a connection, how to setup and manage the connection.
 
 \noindent \textbf{Presentation Layer:} provides data representation and encryption.
 
 \noindent \textbf{Application Layer:} provides the interface to the application. Deliver email, stream video, etc.
 
 \noindent \textbf{Happy Eyeballs}: The process of trying multiple connections to a server to find one that is available.
+
+
+\subsection*{Connection Establishment in a Fragmented Network}
+
+% 2a
+\noindent \textbf{TCP} is a transport layer protocol, provides a reliable ordered byte stream service over the 
+best-effort IP network. Provides congestion control. 
+TCP segments carried as data in IP packets. 
+IP packets carried as data in link layer frames. Link layer frames delivered over physical layer.
+Lost packets are retransmitted, ordering is preserved, message boundaries are not preserved.
+TCP follows a client-server model. 
+The server calls the accept () function to accept incoming connections, while the client initiates a connection by calling connect ().
+Calls to send () and recv () are used to send and receive data.
+As RTT increases, benefits of increasing bandwidth reduce
+
+% 2b
+\noindent \textbf{Impact of TLS:}
+HTTP sends and retrives data immediatly once the TCP connection is open.
+HTTPS opens a TCP connection, then negotiates secure parameters using TLS.\@
+TLS v1.3: extra 1RTT, TLS v1.2: 2RTT.\@
+
+\noindent \textbf{Impact of Ipv6 and dual stack deployments:}
+Hosts support a combination of IPv4 and IPv6.
+
+% 2c
+\noindent \textbf{Peer-to-peer Connections}
+You should be able to run a TCP server on any device, and TCP, UDP based peer-to-peer applications.
+Peer-to-peer connetion establishment is difficult due to network address translation (NAT).
+\noindent \textbf{NAT} is a work around for the shortage of IPv4 addresses, it allows several devices to share a single public IP address.
+ISP assigns new range of IP addressses to customer.
+Records the mapping, so the reverse changes can be made to any incoming replies as they traverse the NAT in the reverse direction
+
+% 2d
+\noindent \textbf{NAT Breaks Applications}:
+Client-server applications with server behind NAT fail – need explicit port forwarding
+Hard-coding IP addresses, rather than DNS names, in configuration files and application is a bad idea
+Outgoing connections create state in NAT, so replies can be translated to reach the correct host on the private network.
+
 
 
 \end{document}

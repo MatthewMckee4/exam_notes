@@ -124,7 +124,30 @@ Use encryption to make data useless if intercepted.
 a small symmetric key is securely shared using slower public-key encryption,
 and then that key is used for fast, secure communication using symmetric encryption.
 This approach ensures both confidentiality and performance.
-\textbf{Digital Signatures}:
+\textbf{Digital Signatures}: Sender generates a digital signature,
+sender calcualte the cryptographic hash of the message,
+sender encrypts the hash with their private key.
+message and its digital signature are sent to the receiver using hybrid encryption.
+Reciever decrypts the message,
+reciever calcualtes the cryptographic hash of the message,
+reciever decrypts the digitalsignature using the senders public key,
+if the signature is valid and the message is unchanged, the reciever can be sure that the message was sent by the claimed sender.
+\textbf{Public key infrastructure (PKI)} verifies digital signatures.
+
+
+% 3c
+\noindent \textbf{Transport Layer Security (TLS)} is used to encrypt and authenticate data carried within a TCP connection.
+TLS handshake runs within a TCP connection. ClientHello is sent with the ACK, ServerHello is sent in response, Finished message concludes.
+ClientHello signals TLS v1.2 but header indicates TLS v1.3, provides the cryptographic algorithms the client supports,
+provides the name of the server to which the client is connecting, no data.
+ServerHello provides the cryptographic algorithm the server supports, from the ones the client supports,
+provides the servers public key and digital signature.
+Finished provides clients public key.
+TLS record protocol: splits the data into records ($< 2^{14}$ bytes), encrypts each record with a record layer key.
+Does not provide record boundaries.
+If a client and server have previously communicated, they can re-use a key (0-RTT).
+\textbf{Limitations of TLS}: does not encrypt server name, operates within TCP connection, relies on a PKI to validate public keys.
+
 
 
 

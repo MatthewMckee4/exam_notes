@@ -16,10 +16,10 @@
 \footnotesize
 
 \subsection*{Common Questions}
-Describe what is indicated by a TCP acknowledgement, what are TCP selective acknowledgements, and how do they change what is acknowledged by TCP. Explain why selective acknowledgements are useful?
+Describe what is indicated by a TCP acknowledgement, what are TCP selective acknowledgements, and how do they change what is acknowledged by TCP.\@ Explain why selective acknowledgements are useful?
 \begin{itemize}
     \item A TCP acknowledgement (ACK) is sent when a packet arrives that contains new data; the acknowledgement number indicates the next contiguous sequence number expected.
-    \item TCP selective acknowledgements (SACK blocks) are a TCP extension that allows a receiver to signal receipt of non-contiguous packets in addition to the standard ACK.
+    \item TCP selective acknowledgements (SACK blocks) are a TCP extension that allows a receiver to signal receipt of non-contiguous packets in addition to the standard ACK.\@
     \item SACK blocks are useful because they give the sender information that it needs to avoid unnecessary retransmissions when a triple duplicate ACK is received.
     \item SACK blocks don’t affect the congestion control algorithm; they just change what packets are retransmitted.
 \end{itemize}
@@ -36,7 +36,7 @@ Describe what is indicated by a TCP acknowledgement, what are TCP selective ackn
     Performance is limited by whichever is smaller; the receiver needs enough buffering to match the network if the full performance is to be reached.
 \end{itemize}
 
-\noindent Consider a modified version of TCP that overlaps these twophases, where the client provides some data as an additional parameter to the connect()
+\noindent Consider a modified version of TCP that overlaps these twophases, where the client provides some data as an additional parameter to the connect ()
 function which is sent in the TCP segment that has the SYN bit set, with the response being
 returned in the SYN+ACK segment. State what would be the benefit of this idea and discuss
 why it is not feasible in practise.
@@ -81,71 +81,6 @@ to perform such a DNS lookup can vary significantly. Explain what causes this va
     \item The time it takes to perform a DNS lookup can vary significantly due to the distance between the client and the DNS server, the load on the DNS server, and the time it takes for the DNS server to respond.
     \item DNS caching, different website can cache for different times, and the time it takes for the DNS server to respond can vary.
 \end{itemize}
-
-
-
-\subsection*{The changing Internet}
-
-\begin{definition}
-    A Networked System is a cooperating set of autonomous computing devices that exchange data to perform some application goal
-\end{definition}
-\vspace{-15pt}
-\begin{note}
-    Channel constraints bound communications speed and reliability
-\end{note}
-\vspace{-15pt}
-\begin{definition}
-    The OSI Reference Model: Application Layer, Presentation Layer, Session Layer, Transport Layer, Network Layer, Data Link Layer, Physical Layer
-\end{definition}
-\vspace{-15pt}
-\begin{note}
-    Real networks don't follow the OSI Reference Model
-\end{note}
-\vspace{-8pt}
-
-\noindent \textbf{Physical Layer:} Transmits raw bits over a physical medium. 
-
-\noindent Baseband Data Encoding:
-\noindent NRZ: 0 is represented by no change in voltage, 1 is represented by a change in voltage. Easy to miscount bits if long run of same value.
-\noindent Manchester: Encoding: 0 is represented by a transition from high to low, 1 is represented by a transition from low to high.
-
-\noindent Modulation: Allows multiple signals on a channel, modulated onto carriers of different frequency. Amplitude Modulation, Frequency Modulation, Phase Modulation.
-
-
-\noindent \textbf{Data Link Layer:} provides framing, addressing, media access control, error detection, and flow control.
-
-\noindent Framing: Separate the bitstream into meaningful frames of data.
-
-\noindent Media Access Control: How devices share the channel. If another transmission is active, the device must wait until the channel is free.
-
-
-\noindent \textbf{Network Layer:} provides routing, addressing, and packet switching. Internet Protocol (IP).
-
-\noindent IPv4: 32-bit address space. Fragmentation difficult at high data rates.
-
-\noindent IPv6: 128-bit address space. No in-network fragmentation. Simple header format.
-
-\noindent Routing: Each network administered separately - an autonomous system (AS), different technologies and policies.
-
-\noindent Inter-domain Rounting: Route advertisements are sent to the routing table of the destination. Border Gateway Protocol (BGP). Advertisements have AS-path.
-
-
-\noindent \textbf{Transport Layer:} provides end-to-end error recovery, flow control, and multiplexing.
-
-\noindent TCP: Connection-oriented, reliable, in-order delivery, flow control, congestion control.
-
-\noindent UDP: Connectionless, unreliable, out-of-order delivery, no flow control, no congestion control.
-
-
-\noindent \textbf{Session Layer:} provides session establishment, maintenance, and termination.
-
-\noindent Managing Connections: How to find participants in a connection, how to setup and manage the connection.
-
-\noindent \textbf{Presentation Layer:} provides data representation and encryption.
-
-\noindent \textbf{Application Layer:} provides the interface to the application. Deliver email, stream video, etc.
-
-\noindent Happy Eyeballs: The process of trying multiple connections to a server to find one that is available.
 
 
 \end{document}

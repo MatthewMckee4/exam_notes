@@ -1,3 +1,0 @@
-# Treat PDFs as binary files and always use "ours" merge strategy
-*.pdf binary
-*.pdf merge=ours

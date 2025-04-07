@@ -22,13 +22,14 @@ jobs:
 
       - name: Rename PDFs with folder names
         run: |
-          for pdf in **/*.pdf; do
+          find . -name "*.pdf" -type f | while read pdf; do
             dir=$(dirname "$pdf")
             base=$(basename "$pdf")
             if [ "$dir" != "." ]; then
               mv "$pdf" "${dir}/${dir##*/}-${base}"
             fi
           done
+        shell: bash
 
 
       - name: Create Release

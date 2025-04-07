@@ -32,7 +32,7 @@ Describe what is indicated by a TCP acknowledgement, what are TCP selective ackn
 
 \noindent Explain the difference between the receive window and the congestion window in a TCP connection. Which is the limiting factor in TCP throughput?
 \begin{itemize}
-    \item The receive window is the available buffer space at the receiver, the congestion window is an estimate of the available network capacity. 
+    \item The receive window is the available buffer space at the receiver, the congestion window is an estimate of the available network capacity.
     Performance is limited by whichever is smaller; the receiver needs enough buffering to match the network if the full performance is to be reached.
 \end{itemize}
 
@@ -49,7 +49,7 @@ why it is not feasible in practise.
 Briefly discuss the potential benefits and risks of remembering the congestion window.
 \begin{itemize}
     \item Benefits: Faster connection establishment, less congestion on the network.
-    \item Risks: If the network conditions change, the congestion window may not be appropriate, leading to increased latency or packet loss. 
+    \item Risks: If the network conditions change, the congestion window may not be appropriate, leading to increased latency or packet loss.
     \item Risks: If some flows start with a high congestion window, they may starve other flows.
 \end{itemize}
 

@@ -1,19 +1,19 @@
 Networked Systems:
-  - changed-files:
-      - any-glob-to-any-file: notes/2024-2025/computing_science/4012_networked_systems/**
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4012_networked_systems/**
 
 Database Systems:
-  - changed-files:
-      - any-glob-to-any-file: notes/2024-2025/computing_science/4013_database_systems/**
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4013_database_systems/**
 
 Professional Software Development:
-  - changed-files:
-      - any-glob-to-any-file: notes/2024-2025/computing_science/4015_professional_software_development/**
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4015_professional_software_development/**
 
 Data Fundamentals:
-  - changed-files:
-      - any-glob-to-any-file: notes/2024-2025/computing_science/4073_data_fundamentals/**
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4073_data_fundamentals/**
 
 Systems Programming:
-  - changed-files:
-      - any-glob-to-any-file: notes/2024-2025/computing_science/4081_systems_programming/**
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/computing_science/4081_systems_programming/**

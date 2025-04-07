@@ -3,48 +3,48 @@ name: Build and Release PDFs
 on:
   push:
     branches:
-      - main
+    - main
     paths:
-      - '.github/workflows/build-release.yml'
-      - '**/*.tex'
-      - 'Makefile'
+    - .github/workflows/build-release.yml
+    - '**/*.tex'
+    - Makefile
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Build LaTeX
-        uses: xu-cheng/latex-action@v3
-        with:
-          work_in_root_file_dir: true
-          root_file: |
-            **/*.tex
+    - uses: actions/checkout@v4
 
-      - name: Rename PDFs with folder names
-        run: |
-          find . -name "*.pdf" -type f | while read pdf; do
-            dir=$(dirname "$pdf")
-            base=$(basename "$pdf")
-            if [ "$dir" != "." ]; then
-              mv "$pdf" "${dir}/${dir##*/}-${base}"
-            fi
-          done
-        shell: bash
+    - name: Build LaTeX
+      uses: xu-cheng/latex-action@v3
+      with:
+        work_in_root_file_dir: true
+        root_file: |
+          **/*.tex
 
-      - name: List PDFs
-        run: |
-          find . -name "*.pdf" -type f
-        shell: bash
+    - name: Rename PDFs with folder names
+      run: |
+        find . -name "*.pdf" -type f | while read pdf; do
+          dir=$(dirname "$pdf")
+          base=$(basename "$pdf")
+          if [ "$dir" != "." ]; then
+            mv "$pdf" "${dir}/${dir##*/}-${base}"
+          fi
+        done
+      shell: bash
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          files: |
-            ./notes/2024-2025/computing_science/*/*-notes.pdf
-          tag_name: pdf-${{ github.sha }}
-          name: PDF Build ${{ github.event.head_commit.timestamp }}
-          draft: false
-          prerelease: false 
+    - name: List PDFs
+      run: |
+        find . -name "*.pdf" -type f
+      shell: bash
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: github.ref == 'refs/heads/main'
+      with:
+        files: |
+          ./notes/2024-2025/computing_science/*/*-notes.pdf
+        tag_name: pdf-${{ github.sha }}
+        name: PDF Build ${{ github.event.head_commit.timestamp }}
+        draft: false
+        prerelease: false

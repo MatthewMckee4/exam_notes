@@ -1,4 +1,4 @@
-name: "Pull Request Labeller"
+name: Pull Request Labeller
 
 on:
   pull_request:

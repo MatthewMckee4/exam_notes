@@ -4,7 +4,7 @@
 
 Make a fork, add your notes, and make a pull request.
 
-Please try to keep the notes as concise as possible. 
+Please try to keep the notes as concise as possible.
 
 ## 2024-2025
 

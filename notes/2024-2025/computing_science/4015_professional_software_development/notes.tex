@@ -39,7 +39,7 @@ establish cost estimates and priorities.
 \noindent \textbf{Release planning meeting} long projects have multiple releases, identify high level features, create a roadmap of milestones.
 
 \noindent \textbf{Sprint Planning Meetings}: decide on a main goal for the sprint: features, bugs, refactors. Select tasks from the backlog.
- 
+
 \noindent \textbf{Stand-ups} are used for each member to reflect on progress, blockers, and next steps. Max 10 minutes.
 
 \noindent \textbf{Managing delays} can be done by getting an extension or reducing feature set.
@@ -60,8 +60,8 @@ Each repo can be linked to other repos.
 
 \noindent \textbf{Commits} are saved with a hash for uniquely identifying the changes.
 
-\noindent \textbf{Branching} is used for maintaining multiple development lines. 
-\textbf{Trunk-based development} invloves commiting to one main branch, useful for reducing merge conflicts, requires developers to make smaller changes, 
+\noindent \textbf{Branching} is used for maintaining multiple development lines.
+\textbf{Trunk-based development} invloves commiting to one main branch, useful for reducing merge conflicts, requires developers to make smaller changes,
 and provides clear visibility of project process.
 \textbf{Feature Branching} is more convenient for managing code reviews.
 \textbf{Staging branches} are used after making a commit to the main branch, some testing is done here then a push is made to the deployment branch.
@@ -95,8 +95,8 @@ identify any significant risks, decide on goals for first sprint.
 
 \noindent \textbf{Process improvement frameworks}: \textbf{ISO 9001}, \textbf{Six Sigma}, \textbf{CMMI}.
 
-\noindent \textbf{Goal} is to arrive at the root cause when discussing challenges in ret-rospectives. 
-These meetings, unfortunately, are infrequent by nature and issues early in the sprint may be hard to recall. 
+\noindent \textbf{Goal} is to arrive at the root cause when discussing challenges in ret-rospectives.
+These meetings, unfortunately, are infrequent by nature and issues early in the sprint may be hard to recall.
 It is important to vary the retrospective structure.
 
 \noindent \textbf{How} this is done: gather data, analyse data, identify root causes, implement changes.
@@ -118,7 +118,7 @@ mappings (relationship between source and generated artifacts), tasks (actions t
 
 \noindent \textbf{Types of dependencies}: environmental, application
 
-\noindent \textbf{Types of releases}: Core executable, Tailored executable, Optional extensions, Sources, Documentation (compositions). 
+\noindent \textbf{Types of releases}: Core executable, Tailored executable, Optional extensions, Sources, Documentation (compositions).
 Bleeding edge/snapshot, Beta test release, Production release (schedule intent).
 
 \noindent \textbf{Types of APIs}: Private, Public
@@ -143,7 +143,7 @@ Published (APIs that can be externally access but not explicitly documented as b
 \noindent \textbf{Build times}: should be less than 10 minutes.
 
 \noindent \textbf{Staging platform}: Used to test software before being released to users.
-Limitations include lack of realism, too many simultaneous users, network endpoints and data sets inaccessible outside of production. 
+Limitations include lack of realism, too many simultaneous users, network endpoints and data sets inaccessible outside of production.
 Multiple staging environments may be needed when several components, each of which intended for use on a different platform, exist.
 
 
@@ -182,12 +182,12 @@ Multiple staging environments may be needed when several components, each of whi
 
 \subsection*{System Scale Testing}
 
-\noindent \textbf{Reliability testing}: PFD (probability of failure on access), meantime to failure (time for system to fail from initiation, 
+\noindent \textbf{Reliability testing}: PFD (probability of failure on access), meantime to failure (time for system to fail from initiation,
 or time be-tween failures; good metric when repair is expensive), down-time (useful when system is high-demand).
 
 \noindent \textbf{Hostile system environment}: A system environment may be considered hostile if there is a rationalization for why threats/attackers may wish to exploit it.
 
-\noindent \textbf{Fuzz testing}: Providing unusual inputs. 
+\noindent \textbf{Fuzz testing}: Providing unusual inputs.
 \noindent \textbf{Penetration testing}: An attacking team attempts to gain unauthorized access with the expected tools of a hacker.
 
 \noindent \textbf{Heterogenous systems}: The greater the variation in organisational culture the harder it is to develop a consistent testing programme. Despite agreed standards, variations inevitably occur.
@@ -230,7 +230,7 @@ Development costs: documentation of component interfaces need to be maintained.
 
 \noindent \textbf{Information processing patterns}: Message-oriented architecture, pipe and filter.
 
-\noindent \textbf{Message-oriented architectural pattern}: provides a basis for asyn-chronous communication. 
+\noindent \textbf{Message-oriented architectural pattern}: provides a basis for asyn-chronous communication.
 Communication occurs as discrete mes-sages passing through a message bus, which re-routes to the appro-priate client based on routing policy.
 \noindent \textbf{Message  driven}: Computation in a component is the resultof message reception from another component.
 \noindent \textbf{Message broker}: Deciding which component receives the mes-sage
@@ -252,7 +252,7 @@ Inner platform effect.
 
 Refactor when implementing new functionality, correcting defects, code reviews, trying to understand a software artefact.
 
-\noindent \textbf{Code smells}: cloning, complex structures, long parameter lists, excessive comments 
+\noindent \textbf{Code smells}: cloning, complex structures, long parameter lists, excessive comments
 
 
 \subsection*{Software Licensing}

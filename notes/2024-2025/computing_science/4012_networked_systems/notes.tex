@@ -24,7 +24,7 @@
 \noindent \textbf{OSI Reference Model:} Application Layer, Presentation Layer, Session Layer, Transport Layer, Network Layer, Data Link Layer, Physical Layer
 \textbf{Note:} Real networks don't follow the OSI Reference Model
 
-\noindent \textbf{Physical Layer:} Transmits raw bits over a physical medium. 
+\noindent \textbf{Physical Layer:} Transmits raw bits over a physical medium.
 \textbf{Baseband Data Encoding:}
 \textbf{NRZ:} 0 is represented by no change in voltage, 1 is represented by a change in voltage. Easy to miscount bits if long run of same value.
 \textbf{Manchester:} Encoding: 0 is represented by a transition from high to low, 1 is represented by a transition from low to high.
@@ -58,12 +58,12 @@
 \subsection*{Connection Establishment in a Fragmented Network}
 
 % 2a
-\noindent \textbf{TCP} is a transport layer protocol, provides a reliable ordered byte stream service over the 
-best-effort IP network. Provides congestion control. 
-TCP segments carried as data in IP packets. 
+\noindent \textbf{TCP} is a transport layer protocol, provides a reliable ordered byte stream service over the
+best-effort IP network. Provides congestion control.
+TCP segments carried as data in IP packets.
 IP packets carried as data in link layer frames. Link layer frames delivered over physical layer.
 Lost packets are retransmitted, ordering is preserved, message boundaries are not preserved.
-TCP follows a client-server model. 
+TCP follows a client-server model.
 The server calls the accept () function to accept incoming connections, while the client initiates a connection by calling connect ().
 Calls to send () and recv () are used to send and receive data.
 As RTT increases, benefits of increasing bandwidth reduce
@@ -109,10 +109,10 @@ Connection requests sent from a host that passes through a NAT will open a bindi
 \subsection*{Secure Communications}
 
 % 3a
-\textbf{The Need for Secure Communications}. Numerous organisations monitor network traffic. 
+\textbf{The Need for Secure Communications}. Numerous organisations monitor network traffic.
 Mechanisms that protect privacy against malicious attackers will also prevent monitoring.
-Preventing protocol ossification: network operators deploy middleboxes to monitor or modify traffic. 
-These middleboxes must inderstand the protocols, this creates ossification. 
+Preventing protocol ossification: network operators deploy middleboxes to monitor or modify traffic.
+These middleboxes must inderstand the protocols, this creates ossification.
 The more of a protocol that is encrypted, the easier it is to change.
 
 % 3b
@@ -120,11 +120,11 @@ The more of a protocol that is encrypted, the easier it is to change.
 Use encryption to make data useless if intercepted.
 \textbf{Symmetric Cryptography}: Same key used for encryption and decryption. Very fast, suitable for bulk data.
 \textbf{Public-Key Cryptography}: Different keys for encryption and decryption. Very slow.
-\textbf{Hybrid Cryptography}: combines the strengths of public-key and symmetric encryption: 
-a small symmetric key is securely shared using slower public-key encryption, 
-and then that key is used for fast, secure communication using symmetric encryption. 
+\textbf{Hybrid Cryptography}: combines the strengths of public-key and symmetric encryption:
+a small symmetric key is securely shared using slower public-key encryption,
+and then that key is used for fast, secure communication using symmetric encryption.
 This approach ensures both confidentiality and performance.
-
+\textbf{Digital Signatures}:
 
 
 

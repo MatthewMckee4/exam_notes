@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[margin=2px]{geometry}
+
+\newtheorem{definition}{Definition}
+\newtheorem{note}{Note}
+
+\title{Networked Systems}
+\author{}
+\date{}
+
+\begin{document}
+
+\footnotesize
+
+\subsection*{The changing Internet}
+
+\begin{definition}
+    A Networked System is a cooperating set of autonomous computing devices that exchange data to perform some application goal
+\end{definition}
+\vspace{-15pt}
+\begin{note}
+    Channel constraints bound communications speed and reliability
+\end{note}
+\vspace{-15pt}
+\begin{definition}
+    The OSI Reference Model: Application Layer, Presentation Layer, Session Layer, Transport Layer, Network Layer, Data Link Layer, Physical Layer
+\end{definition}
+\vspace{-15pt}
+\begin{note}
+    Real networks don't follow the OSI Reference Model
+\end{note}
+\vspace{-8pt}
+
+\noindent \textbf{Physical Layer:} Transmits raw bits over a physical medium. 
+
+\noindent Baseband Data Encoding:
+\noindent NRZ: 0 is represented by no change in voltage, 1 is represented by a change in voltage. Easy to miscount bits if long run of same value.
+\noindent Manchester: Encoding: 0 is represented by a transition from high to low, 1 is represented by a transition from low to high.
+
+\noindent Modulation: Allows multiple signals on a channel, modulated onto carriers of different frequency. Amplitude Modulation, Frequency Modulation, Phase Modulation.
+
+
+\noindent \textbf{Data Link Layer:} provides framing, addressing, media access control, error detection, and flow control.
+
+\noindent Framing: Separate the bitstream into meaningful frames of data.
+
+\noindent Media Access Control: How devices share the channel. If another transmission is active, the device must wait until the channel is free.
+
+
+\noindent \textbf{Network Layer:} provides routing, addressing, and packet switching. Internet Protocol (IP).
+
+\noindent IPv4: 32-bit address space. Fragmentation difficult at high data rates.
+
+\noindent IPv6: 128-bit address space. No in-network fragmentation. Simple header format.
+
+\noindent Routing: Each network administered separately - an autonomous system (AS), different technologies and policies.
+wh
+\noindent Inter-domain Rounting: Route advertisements are sent to the routing table of the destination. Border Gateway Protocol (BGP). Advertisements have AS-path.
+
+
+\noindent \textbf{Transport Layer:} provides end-to-end error recovery, flow control, and multiplexing.
+
+\noindent TCP: Connection-oriented, reliable, in-order delivery, flow control, congestion control.
+
+\noindent UDP: Connectionless, unreliable, out-of-order delivery, no flow control, no congestion control.
+
+
+\noindent \textbf{Session Layer:} provides session establishment, maintenance, and termination.
+
+\noindent Managing Connections: How to find participants in a connection, how to setup and manage the connection.
+
+\noindent \textbf{Presentation Layer:} provides data representation and encryption.
+
+\noindent \textbf{Application Layer:} provides the interface to the application. Deliver email, stream video, etc.
+
+\noindent \textbf{Happy Eyeballs}: The process of trying multiple connections to a server to find one that is available.
+
+
+\end{document}

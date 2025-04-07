@@ -104,8 +104,8 @@ Records the mapping, so the reverse changes can be made to any incoming replies 
 Client-server applications with server behind NAT fail – need explicit port forwarding
 Hard-coding IP addresses, rather than DNS names, in configuration files and application is a bad idea
 Outgoing connections create state in NAT, so replies can be translated to reach the correct host on the private network.
-
-
+No state for incoming connections.
+UDP not connection-oriented; NAT can’t detect the end of a flow, so use short timeout to cleanup state once UDP flow has stopped
 
 
 \end{document}

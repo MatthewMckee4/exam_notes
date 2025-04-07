@@ -43,7 +43,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         with:
           files: |
-            /notes/2024-2025/computing_science/**/*.pdf
+            ./notes/2024-2025/computing_science/*/*-notes.pdf
           tag_name: pdf-${{ github.event.head_commit.timestamp }}
           name: PDF Build ${{ github.event.head_commit.timestamp }}
           draft: false

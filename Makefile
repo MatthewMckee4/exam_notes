@@ -18,3 +18,12 @@ clean:
 
 compile:
 	find . -name '*.tex' -execdir pdflatex {} \;
+
+rename:
+	find . -type f -name "notes.pdf" -not -path "./.git/*" | while read -r file; do \
+		dir=$$(dirname "$$file"); \
+		if [ "$$dir" != "." ]; then \
+			parentdir=$$(basename "$$dir"); \
+			mv "$$file" "$$dir/$$parentdir-notes.pdf"; \
+		fi \
+	done

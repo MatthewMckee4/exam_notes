@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/build-release.yml'
       - '**/*.tex'
+      - 'Makefile'
 
 jobs:
   build:

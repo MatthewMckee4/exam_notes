@@ -19,12 +19,23 @@ jobs:
           root_file: |
             **/*.tex
 
+      - name: Rename PDFs with folder names
+        run: |
+          for pdf in **/*.pdf; do
+            dir=$(dirname "$pdf")
+            base=$(basename "$pdf")
+            if [ "$dir" != "." ]; then
+              mv "$pdf" "${dir}/${dir##*/}-${base}"
+            fi
+          done
+
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: github.ref == 'refs/heads/main'
         with:
           files: |
-            **/*.pdf
+            **/*notes.pdf
           tag_name: pdf-${{ github.sha }}
           name: PDF Build ${{ github.sha }}
           draft: false

@@ -106,6 +106,9 @@ Hard-coding IP addresses, rather than DNS names, in configuration files and appl
 Outgoing connections create state in NAT, so replies can be translated to reach the correct host on the private network.
 No state for incoming connections.
 UDP not connection-oriented; NAT can’t detect the end of a flow, so use short timeout to cleanup state once UDP flow has stopped
+Incoming connections fail, since NAT cannot know how to translate the incoming packets
+Peer-to-peer connections can succeed if both NATs think a client server connection is being opened, and the response is coming from the server
+Peers connect to referral server on public network, use server to discover the NAT bindings, binding discovery.
 
 
 \end{document}

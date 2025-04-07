@@ -32,13 +32,17 @@ jobs:
           done
         shell: bash
 
+      - name: List PDFs
+        run: |
+          find . -name "*.pdf" -type f
+        shell: bash
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: github.ref == 'refs/heads/main'
         with:
           files: |
-            **/*.pdf
+            /notes/2024-2025/computing_science/*.pdf
           tag_name: pdf-${{ github.sha }}
           name: PDF Build ${{ github.sha }}
           draft: false

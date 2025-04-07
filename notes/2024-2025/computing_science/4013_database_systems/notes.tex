@@ -14,7 +14,7 @@
 \begin{document}
 
 \footnotesize
- 
+
 \subsection*{Database Fundamentals \& Relational Model}
 
 \noindent \textbf{Data} Structured, unstructed, semi-structured
@@ -65,19 +65,19 @@
 X → Y (X uniquely determines Y) holds if whenever two tuples have the same value for X, they must have the same value for Y
 If K is a Candiate Key, then K → R (A) for all attributes A in R
 
-\noindent \textbf{Partial Dependency}: A non-key attribute A is partially dependent on the primary key K if A 
+\noindent \textbf{Partial Dependency}: A non-key attribute A is partially dependent on the primary key K if A
 is dependent on a proper subset of K.
 
-\noindent \textbf{Transitive Dependency}: A non-key attribute A is transitively dependent on the primary key K 
+\noindent \textbf{Transitive Dependency}: A non-key attribute A is transitively dependent on the primary key K
 if A is dependent on another non-key attribute B, and B is in turn dependent on K.
 
 \noindent \textbf{Normalization}: progressive decomposition of unsatisfactory (bad) relations by breaking
 up their attributes into smaller good relations. A prime attribute is an attribute that is part of some candidate key.
 
-\noindent \textbf{First Normal Form (1NF)}: A relation is in 1NF if the domain of each attribute is atomic 
+\noindent \textbf{First Normal Form (1NF)}: A relation is in 1NF if the domain of each attribute is atomic
 (cannot be decomposed) and each tuple is unique. This does not allow nested or multi-valued attributes.
 
-\noindent \textbf{Second Normal Form (2NF)}: A relation is in 2NF if it is in 1NF and all non-key attributes are 
+\noindent \textbf{Second Normal Form (2NF)}: A relation is in 2NF if it is in 1NF and all non-key attributes are
 fully functionally dependent on the primary key.
 
 \noindent \textbf{Third Normal Form (3NF)}: A relation is in 3NF if it is in 2NF and there are no transitive dependencies.
@@ -97,7 +97,7 @@ fully functionally dependent on the primary key.
 
 \begin{itemize}
     \item \textbf{Inner Join}: Returns only the tuples that match the join condition. `WHERE table1 INNER JOIN table2'
-    \item \textbf{Left (Outer) Join}: Returns all tuples from the left relation and the matching tuples from the right relation. `WHERE table1 LEFT OUTER JOIN table2 (ON condition)' 
+    \item \textbf{Left (Outer) Join}: Returns all tuples from the left relation and the matching tuples from the right relation. `WHERE table1 LEFT OUTER JOIN table2 (ON condition)'
     \item \textbf{Right (Outer) Join}: Returns all tuples from the right relation and the matching tuples from the left relation. `WHERE table1 RIGHT OUTER JOIN table2 (ON condition)'
     \item \textbf{Full (Outer) Join}: Returns all tuples from both relations. `WHERE table1 FULL OUTER JOIN table2'
 \end{itemize}
@@ -137,11 +137,11 @@ blocking factory = $\lfloor \lvert B \rvert / \lvert R \rvert \rfloor$. Number o
 
 \noindent \textbf{File Structures}
 
-\noindent \textbf{Heap File}: Blocks are stored in an arbitrary order. 
+\noindent \textbf{Heap File}: Blocks are stored in an arbitrary order.
 
-\noindent \textbf{Ordered File}: Blocks are stored in a specific order. 
-Inserting O (log n) + (move all the blocks), 
-Retrieving (ordering field) O (log n), Retrieving (non-ordering field) O (n). 
+\noindent \textbf{Ordered File}: Blocks are stored in a specific order.
+Inserting O (log n) + (move all the blocks),
+Retrieving (ordering field) O (log n), Retrieving (non-ordering field) O (n).
 Deleting (ordering field) O (n), non-ordering field O (log n).
 Can use chain pointers to link records in the same block (sorted linked list)
 
@@ -193,7 +193,7 @@ which point to the actual data.
 
 \noindent \textbf{External Sorting}: Sorting for large relations stored on disk, that cannot fit into memory.
 Divide and Conquer. Split a file of b blocks into L smaller sub-files. Load each sub-file into memory and sort it.
-Merge the sorted sub-files into a new sorted file. 
+Merge the sorted sub-files into a new sorted file.
 Cost is $O(2b(1 + \log_M(L)))$. M is degree of merging, L is the number of initial sorted sub-files.
 
 \noindent \textbf{Strategies for Select}: Linear search (b/2), binary search (log2 b), primary index (t+1) or hash function (1 + n/2) over a key,
@@ -218,7 +218,7 @@ hash-join (hashed relations) Hash the inner relation and then probe the hash tab
 Important is information about each relation and attribute. NDV (Number of Distinct Values).
 
 \noindent \textbf{Selection Selectivity}: $0 \leq sl(A) \leq 1$
-\noindent \textbf{Selective Predictions}: Approximation of the selection selectivity. You oculd have no assumption about the data, 
+\noindent \textbf{Selective Predictions}: Approximation of the selection selectivity. You oculd have no assumption about the data,
 could be uniformly distributed
 
 \noindent \textbf{Conjunctive Selectivity} (A = x and B = y): $sl(Q) = sl(A = x) \cdot sl(B = y) \in [0, 1]$

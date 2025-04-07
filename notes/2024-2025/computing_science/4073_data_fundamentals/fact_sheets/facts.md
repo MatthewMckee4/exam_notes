@@ -13,7 +13,7 @@ jupyter:
 ---
 
 # DF(H) Fact sheet
-**John H. Williamson** 
+**John H. Williamson**
 
 ---
 
@@ -89,21 +89,21 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Broadcastable array shape**  (2, 3) and (3,) are broadcastable, resulting in shape (2, 3) after broadcasting.
 *  **Broadcastable array shape**  (2, 1, 3) and (2,3,1) are broadcastable, resulting in shape (2, 3, 3) after broadcasting.
 *  **Unbroadcastable array shape**  (3, 3) and (2, 4) are not broadcastable; broadcasting fails due to incompatible dimensions.
-*  **Array Slicing**  Extracting a portion of an array by specifying a range of indices or dimensions. 
+*  **Array Slicing**  Extracting a portion of an array by specifying a range of indices or dimensions.
 	* *Example:* array[1:3, :].
-*  **Array Indexing**  Accessing specific elements in an array using integer or boolean indices. 
+*  **Array Indexing**  Accessing specific elements in an array using integer or boolean indices.
 	* *Example:* array[0, 4].
-*  **Array Mapping**  Applying a function to each element of an array, creating a new array. 
+*  **Array Mapping**  Applying a function to each element of an array, creating a new array.
 	* *Example:* np.sin(array).
-*  **Array Filtering**  Selecting elements from an array based on a condition, creating a filtered array. 
+*  **Array Filtering**  Selecting elements from an array based on a condition, creating a filtered array.
 	* *Example:* array[array > 5].
-*  **Array Reduction**  Combining elements of an array to produce a single result (e.g., sum, mean). 
+*  **Array Reduction**  Combining elements of an array to produce a single result (e.g., sum, mean).
 	* *Example:* np.sum(array).
-*  **Array Scans**  Performing a cumulative operation on elements, building an array of partial results. 
+*  **Array Scans**  Performing a cumulative operation on elements, building an array of partial results.
 	* *Example:* np.cumsum(array).
-*  **Array Searching**  Finding the index or position of a specific value or condition in an array. 
+*  **Array Searching**  Finding the index or position of a specific value or condition in an array.
 	* *Example:* np.argmax(array).
-*  **Array Sorting**  Rearranging elements in ascending or descending order within an array. 
+*  **Array Sorting**  Rearranging elements in ascending or descending order within an array.
 	* *Example:* np.sort(array).
 *  **Arg***  Functions that return the indices of elements that satisfy a condition, like np.argmax and np.argmin.
 *  **np.transpose(array)**  Swaps the dimensions of an array, effectively rotating it.
@@ -191,10 +191,10 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Flatten for Flattening** Use np.ndarray.flatten() to flatten arrays into one-dimensional arrays (returns a copy).
 *  **Einsum Function** np.einsum() allows for efficient contraction and summation of multidimensional arrays using Einstein's summation convention.
 *  **Einsum Notation** Uses subscripts to define input and output array dimensions, facilitating complex array operations in a concise manner.
-*  **Einsum Example** 
+*  **Einsum Example**
 	* *Example:* np.einsum('ijk->jik', A, B) swaps the first two axes of A and B and leaves the last axis unchanged.
 *  **Swapaxes Function** np.swapaxes() swaps two axes of an array, changing the shape and layout of the array in memory.
-*  **Swapaxes Example** 
+*  **Swapaxes Example**
 	* *Example:* np.swapaxes(arr, axis1, axis2) swaps the specified axes (axis1 and axis2) of the input array.
 *  **np.meshgrid()**  grids=np.meshgrid(*spacings) creates coordinate matrices from coordinate vectors, facilitating vectorized evaluations of functions on a grid.
 *  **Benefits of Einsum** Enables efficient handling of complex array operations, reducing the need for explicit loops and intermediate arrays.
@@ -208,12 +208,12 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Significance of ULPs** ULPs indicate the precision of a floating-point number relative to its magnitude.
 *  **Floating-Point Numbers and ULPs** Two floating-point numbers that differ by 1 ULP have the smallest possible difference.
 *  **np.nextafter Function** In NumPy, np.nextafter(x, y) returns the next representable floating-point number after x in the direction of y.
-*  **np.nextafter Example** 
+*  **np.nextafter Example**
 	* *Example:* np.nextafter(1.0, 2.0) returns the next representable floating-point number greater than 1.0.
 *  **np.nextafter Usage** Useful for exploring floating-point number representation and analyzing precision in numerical algorithms.
 *  **Avoiding Catastrophic Cancellation** By understanding ULPs, programmers can mitigate the effects of catastrophic cancellation in numerical computations.
 *  **Comparing Floating-Point Numbers** When comparing floating-point numbers, consider a tolerance in ULPs rather than an absolute tolerance to account for precision differences.
-*  **Time complexity of transpose**  O(1) 
+*  **Time complexity of transpose**  O(1)
 *  **you are** a space cadet
 *  **Square Root of a Negative Number** Taking the square root of a negative number in real arithmetic results in NaN.
 *  **Zero Divided by Zero** Zero divided by zero is an undefined operation, resulting in NaN.
@@ -316,7 +316,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **dot product**  the inner product for a real vector space
 *  **angle between vectors**  angle θ between vectors v and w is given by cos(θ) = (v · w) / (||v|| ||w||)
 *  **cosine similarity**  the cosine of the angle between two vectors, i.e. the dot product of the vectors divided by the product of their norms (not the same as the angle!)
-*  **orthogonal vectors**  vectors that are perpendicular to each other, i.e. their dot product is zero, at 90 degrees to each other 
+*  **orthogonal vectors**  vectors that are perpendicular to each other, i.e. their dot product is zero, at 90 degrees to each other
 *  **unit vectors**  vectors with norm 1 (in some specified norm)
 *  **orthonormal vectors**  some vectors $a,b,c,...$ that are (mutually) orthogonal and are all unit vectors
 *  **linear interpolation of two vectors**  z = αx + (1 - α)y combines vectors x and y by taking a weighted average of their elements
@@ -329,7 +329,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **unit vector**  vector with norm 1 (in some specified norm)
 *  **mean vector**  average of a set of vectors, corresponding to the geometric centroid of the vectors
 *  **computation of the mean vector**  sum the vectors and divide by the number of vectors (i.e. multiply by 1/N)
-*  **lerp**  linear interpolation, i.e. weighted average of two vectors 
+*  **lerp**  linear interpolation, i.e. weighted average of two vectors
 *  **Curse of Dimensionality**  phenomenon where high-dimensional spaces exhibit counterintuitive behaviors, especially increasing sparsity
 *  **Density in shells**  in high dimensions, most of the volume of a hypersphere is concentrated near its surface
 *  **Volume of unit ball in high-d space**  decreases exponentially with dimension
@@ -361,8 +361,8 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Scalar Multiplication Property of Linear Maps**  for any scalar c and vector v, T(cv) = cT(v)
 *  **Preservation of Origin**  linear maps always map the origin to the origin: T(0) = 0
 *  **Preservation of Lines**  linear maps transform lines in the input space to lines in the output space
-*  **Rotation matrix**  matrix representing a rotation in space, i.e. a linear map that rotates vectors by a specified angle without scaling 
-*  **Scale matrix**  matrix representing a scaling in space, i.e. a linear map that scales vectors by a specified factor without rotating; always diagonal 
+*  **Rotation matrix**  matrix representing a rotation in space, i.e. a linear map that rotates vectors by a specified angle without scaling
+*  **Scale matrix**  matrix representing a scaling in space, i.e. a linear map that scales vectors by a specified factor without rotating; always diagonal
 *  **Skew matrix**  matrix representing a skew in space, i.e. a linear map that shears vectors
 *  **Definition of Matrices in R^(MxN)**  matrices are rectangular arrays of real numbers with M rows and N columns
 *  **Matrix Multiplication (AB)**  operation resulting in a new matrix C, where C[i, j] is the dot product of the ith row of A and jth column of B
@@ -379,7 +379,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Upper Triangular Matrix**  a square matrix where all elements below the main diagonal are zero
 *  **Lower Triangular Matrix**  a square matrix where all elements above the main diagonal are zero
 *  **Square Matrix**  a matrix with the same number of rows and columns (NxN)
-*  **Properties of square matrix**  *may* have an inverse; has an eigenvalue decomposition; has a determinant 
+*  **Properties of square matrix**  *may* have an inverse; has an eigenvalue decomposition; has a determinant
 *  **Symmetric Matrix**  a square matrix that is equal to its transpose: A^T = A. The diagonal elements are symmetric about the main diagonal
 *  **Skew-Symmetric (Anti-symmetric) Matrix**  a square matrix where the transpose equals the negative of the matrix: A^T = -A
 *  **Orthogonal Matrix**  a square matrix where the rows and columns are orthonormal unit vectors
@@ -403,7 +403,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **dense matrix**  a matrix in which most of the elements are non-zero
 *  **symmetric matrix**  a square matrix that is equal to its transpose (i.e. A = A^T)
 *  **representing edge-weighted graphs as matrices**  a common method is using an adjacency matrix where each entry represents the weight of the edge between two vertices
-*  **spectral methods**  representing graphs as matrices 
+*  **spectral methods**  representing graphs as matrices
 *  **discrete-continuous interchange**  the idea that discrete objects can be represented as continuous objects, and vice versa
 *  **flow in a graph**  it can be represented as a product of the adjacency matrix and a vector representing flow values, giving a new vector representing updated flow values
 *  **sink**  a vertex with more outgoing edge weight than incoming edge weight
@@ -411,7 +411,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **degree**  the count of the edges connected to a vertex
 *  **in-degree**  the count of the edges entering a vertex
 *  **out-degree**  the count of the edges leaving a vertex
-*  **adjacency matrix**  a square matrix where each entry represents the weight of the edge between two vertices, usually sparse. 
+*  **adjacency matrix**  a square matrix where each entry represents the weight of the edge between two vertices, usually sparse.
 *  **directed graph**  a graph where edges have a direction
 *  **undirected graph**  a graph where edges have no direction
 *  **flow conservation**  the idea that the total flow into a vertex must equal the total flow out of a vertex
@@ -438,18 +438,18 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Determinant**  The determinant of a matrix A, det(A), is equal to the product of its eigenvalues. det(A) = λ1 * λ2 * ... * λn, where λ1, λ2, ..., λn are the eigenvalues of A.
 *  **Geometric interpretation of the determinant**  The determinant of a matrix A is equal to the area of the parallelogram spanned by its column vectors. Alternatively, how much space is "squished/expanded" by the transformation represented by A.
 *  **Singular**  A matrix is singular if det(A)=0; it collapses a dimension and thus cannot be inverted.
-*  **Non-singular**  A matrix that *can* be inverted, with det(A)!=0. Every dimension is preserved. 
+*  **Non-singular**  A matrix that *can* be inverted, with det(A)!=0. Every dimension is preserved.
 *  **Power iteration method**  Power iteration is an iterative algorithm used to find the leading eigenvalue and corresponding eigenvector of a matrix. It involves repeated multiplication of the matrix with a vector and normalization to converge towards the dominant eigenpair.
 *  **Eigenpair**  An eigenpair is a pair of an eigenvalue and its corresponding eigenvector.
-*  **Eigendecomposition**  Eigendecomposition is the factorization of a matrix into a set of eigenvectors and eigenvalues. 
+*  **Eigendecomposition**  Eigendecomposition is the factorization of a matrix into a set of eigenvectors and eigenvalues.
 *  **Geometric interpretation of eigenvalues**  Eigenvalues represent the scaling factor by which a matrix transforms an eigenvector. If λ > 1, the eigenvalue stretches the vector; if 0 < λ < 1, it compresses the vector; if λ < 0, it reflects the vector.
 *  **Geometric interpretation of singularity**  A matrix is singular if and only if its determinant is zero. Geometrically, this means the matrix collapses the space along at least one dimension, resulting in a flat or lower-dimensional transformation.
-*  **Real eigenvalues**  Symmetric square matrices always have real eigenvalues and orthogonal eigenvectors. 
+*  **Real eigenvalues**  Symmetric square matrices always have real eigenvalues and orthogonal eigenvectors.
 *  **Complex eigenvalues**  Complex eigenvalues in a matrix indicate oscillatory behavior in dynamic systems (e.g. in a flow on a graph). When eigenvalues have imaginary parts, the system exhibits periodic or oscillatory motion.
 *  **Relation between trace and eigenvalues**  The sum of eigenvalues of a matrix A is equal to its trace: λ1 + λ2 + ... + λn = tr(A), where λ1, λ2, ..., λn are the eigenvalues of A.
 *  **Relation between determinant and eigenvalues**  The determinant of a matrix A is equal to the product of its eigenvalues: det(A) = λ1 * λ2 * ... * λn, where λ1, λ2, ..., λn are the eigenvalues of A.
 *  **Principal Component Analysis (PCA)**  PCA is a technique used for dimensionality reduction and data compression. It identifies the principal components (eigenvectors) of a the covariance matrix of a dataset, reducing its dimensions while retaining most of the original variance.
-*  **Eigenvalue Decomposition in PCA**  PCA involves computing the eigenvalue decomposition of the covariance matrix of the data. 
+*  **Eigenvalue Decomposition in PCA**  PCA involves computing the eigenvalue decomposition of the covariance matrix of the data.
 *  **Eigenspectrum**  The eigenspectrum represents the distribution of eigenvalues; the eigenvalues ranked by absolute magnitude. Large eigenvalues indicate significant variance in the data, while small eigenvalues represent noise or less important features.
 *  **Principal Components**  Principal components are the eigenvectors of the covariance matrix. They form a new orthogonal basis for the data, with the first principal component capturing the most variance, the second capturing the second most, and so on.
 *  **Variance explained by Principal Components**  Each principal component explains a certain percentage of the total variance in the data. The ratio of the eigenvalue of a principal component to the sum of all eigenvalues indicates the proportion of variance it represents.
@@ -478,7 +478,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Deficient Rank**  A matrix with Rank(A) < number of rows of A, and therefore is singular and cannot be inverted
 *  **Null rank**  A matrix with Rank(A) = 0, and therefore is singular and cannot be inverted (the zero matrix)
 *  **Calculation of Rank**  The rank of a matrix can be determined using various methods including singular value decomposition (SVD) and counting the non-zero singular values.
-*  **Rank and Eigenvalues**  The rank of a square matrix A is equal to the number of non-zero eigenvalues. 
+*  **Rank and Eigenvalues**  The rank of a square matrix A is equal to the number of non-zero eigenvalues.
 *  **Rank and singular values**  The rank of a matrix A is equal to the number of non-zero singular values.
 *  **Adjacency Matrix**  An adjacency matrix is a square matrix used to represent a graph. For a graph with n vertices, the adjacency matrix A is an n x n matrix, where A[i, j] equals 1 if there is an edge between vertex i and vertex j, and 0 otherwise.
 *  **Directed Graphs**  In the adjacency matrix of a directed graph, A[i, j] equals 1 if there is a directed edge from vertex i to vertex j. For an unconnected pair of vertices, A[i, j] equals 0.
@@ -497,7 +497,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **Transition Matrix**  A transition matrix is a square matrix that describes the probabilities of moving from one state to another in a Markov chain. It is a stochastic matrix, meaning all its entries are non-negative and each column sums to 1.
 *  **Low rank approximation**  An approximation of a matrix A. It is obtained by retaining the first k singular values and their corresponding singular vectors (columns of U and V^T).
 *  **Whitening**  a rigorous form of normalisation of a dataset that transforms it into a Gaussian distribution with zero mean and unit covariance. It is a linear transformation that removes redundancy in the data, making it useful in various machine learning algorithms.
-*  **Demeaning**  a form of normalisation of a dataset that transforms it into a zero mean distribution by subtracting the mean. 
+*  **Demeaning**  a form of normalisation of a dataset that transforms it into a zero mean distribution by subtracting the mean.
 *  **Standardisation**  a form of normalisation of a dataset that transforms it into a zero mean distribution with unit variance in each dimension by subtracting the mean and dividing by the standard deviation.
 
 
@@ -546,7 +546,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **continuity and differentiability relationship**  all differentiable functions are continuous, but not all continuous functions are differentiable
 *  **functions that are continuous but not differentiable**  examples include the absolute value function and the square root function
 *  **functions that are both continuous and differentiable**  examples include linear functions, sine, cosine, x^2
-*  **functions that are neither continuous nor differentiable**  examples include step functions 
+*  **functions that are neither continuous nor differentiable**  examples include step functions
 *  **discontinuous function example**  $$f(x) = 1/x$$ (reciprocal function) -- discontinuous at x = 0
 *  **C^0 continuous function example**  $$f(x) = |x|$$ (absolute value function) -- derivative is undefined at x = 0
 *  **C^1 continuous function example**  $$f(x) = x^2$$ (quadratic function)
@@ -741,7 +741,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **sample statistic** a numerical measure that describes an aspect of a sample, such as a sample mean or sample proportion
 *  **inference** the process of drawing conclusions or making predictions about a population based on information obtained from a sample
 *  **generalizability** the extent to which the findings from a sample can be applied to the larger population
-*  **varieties of inference**  direct, maximum likelihood estimation, and Bayesian 
+*  **varieties of inference**  direct, maximum likelihood estimation, and Bayesian
 *  **direct inference** making conclusions about population parameters based on observed sample statistics without formal statistical methods
 *  **maximum likelihood estimation (MLE)** a method of estimating the parameters of a statistical model by maximizing the likelihood function, representing the probability of observed data given the parameters
 *  **likelihood function** the probability of observing the given data for different values of the parameters in a statistical model
@@ -754,7 +754,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **disadvantages of Bayesian inference** requires specifying a prior distribution, can be computationally intensive, and interpretation of subjective priors can be challenging
 *  **probabilistic programming** a programming paradigm that allows the incorporation of probability distributions and Bayesian inference into computer programs, enabling modeling of complex, uncertain systems
 *  **Markov Chain Monte Carlo (MCMC)** a computational method used for sampling from complex probability distributions, especially in Bayesian inference
-*  **MCMC algorithm steps** 1. Start with an initial state. 2. Propose a new state based on a transition probability. 3. Accept or reject the new state based on acceptance probability. 4. Repeat steps 2-3 to generate a chain of states. 
+*  **MCMC algorithm steps** 1. Start with an initial state. 2. Propose a new state based on a transition probability. 3. Accept or reject the new state based on acceptance probability. 4. Repeat steps 2-3 to generate a chain of states.
 *  **Metropolis-Hastings algorithm** an MCMC algorithm that generalizes the basic MCMC approach by using a proposal distribution and an acceptance probability to generate a Markov chain
 *  **Burn-in period** initial phase of an MCMC simulation where the chain stabilizes and reaches the target distribution, discarding the samples generated during this phase
 *  **thinning**  the process of discarding some of the samples generated by an MCMC simulation to improve convergence
@@ -791,13 +791,13 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **linear interpolation** estimating unknown values by connecting adjacent known data points with straight lines
 *  **polynomial interpolation** approximating data points using a polynomial equation fitted to neighboring points
 *  **nearest-neighbor interpolation** estimating unknown values based on the nearest known data point
-*  **resampling** process of changing the sampling rate of a signal, altering the number of samples per unit time 
+*  **resampling** process of changing the sampling rate of a signal, altering the number of samples per unit time
 *  **sliding window technique** a method to analyze data within a fixed-size window that slides over the dataset
 *  **running mean** average computed over a fixed-size window as it moves through the data
 *  **moving average** series of averages calculated from different subsets of the dataset, useful for smoothing
 *  **linear filtering** process of modifying an input signal using a linear operation (a weighted sum), producing an output signal
 *  **weighted averages** calculations that assign different weights to values in a window when computing a moving average
-*  **convolution** mathematical operation combining two functions to produce a third, by multiplying and summing 
+*  **convolution** mathematical operation combining two functions to produce a third, by multiplying and summing
 *  **convolution in signal processing** process of combining input signal and filter kernel to create an output signal
 *  **linear filtering using convolution** applying a filter kernel to input signal via convolution to obtain filtered output
 *  **convolution formula** (f * g)(t) = ∫[from -∞ to ∞] f(τ) * g(t - τ) dτ, where * denotes convolution
@@ -806,7 +806,7 @@ $$\newcommand{\real}{\mathbb{R}}$$
 *  **low-pass filter** allows low-frequency components to pass through while attenuating high-frequency components
 *  **high-pass filter** allows high-frequency components to pass through while attenuating low-frequency components
 *  **band-pass filter** allows a specific range of frequencies to pass through, attenuating others
-*  **kernel**  array of coefficients used in linear filtering to modify the input signal. We convolve a signal with a kernel specifying a filter. 
+*  **kernel**  array of coefficients used in linear filtering to modify the input signal. We convolve a signal with a kernel specifying a filter.
 *  **filter kernel coefficients** weights assigned to each element of the kernel, affecting the filter's behavior
 *  **filter design** process of selecting kernel size and coefficients to achieve desired filtering effect
 *  **impulse response** the output of a system when an impulse signal (Dirac delta function) is applied as input
@@ -917,173 +917,173 @@ $$\newcommand{\real}{\mathbb{R}}$$
 
 # X Numpy
 
-*  **@ (Matrix Multiplication Operator)**  Performs matrix multiplication between two arrays. 
+*  **@ (Matrix Multiplication Operator)**  Performs matrix multiplication between two arrays.
 	* *Example:* result = x @ y computes the matrix multiplication of arrays x and y.
-*  **& (Bitwise AND operator)**  Performs element-wise logical AND between two arrays. 
+*  **& (Bitwise AND operator)**  Performs element-wise logical AND between two arrays.
 	* *Example:* x & y computes the element-wise logical AND between arrays x and y.
-*  **| (Bitwise OR operator)**  Performs element-wise logical OR between two arrays. 
+*  **| (Bitwise OR operator)**  Performs element-wise logical OR between two arrays.
 	* *Example:* x | y computes the element-wise logical OR between arrays x and y.
-*  **~ (Bitwise NOT operator)**  Performs element-wise logical NOT on an array. 
+*  **~ (Bitwise NOT operator)**  Performs element-wise logical NOT on an array.
 	* *Example:* ~x computes the element-wise logical NOT of array x.
-*  **anp.grad(fn)**  with autograd takes a function fn and returns a function that computes the gradient of fn with respect to its inputs. 
+*  **anp.grad(fn)**  with autograd takes a function fn and returns a function that computes the gradient of fn with respect to its inputs.
 	* *Example:* grad_fn = grad(fn) returns a function grad_fn that computes the gradient of fn with respect to its inputs.
-*  **array.astype(dtype)**  Casts the array to the specified data type. 
+*  **array.astype(dtype)**  Casts the array to the specified data type.
 	* *Example:* x.astype(np.float64) converts the array x to the data type float64.
-*  **array.dtype**  Returns the data type of the array elements. 
+*  **array.dtype**  Returns the data type of the array elements.
 	* *Example:* x.dtype returns the data type of elements in array x.
-*  **array.ndim**  Returns the number of array dimensions. 
+*  **array.ndim**  Returns the number of array dimensions.
 	* *Example:* x.ndim returns the number of dimensions of array x.
-*  **array.ravel() or array.flatten()**  Returns a flattened array containing the same elements as the input array. 
+*  **array.ravel() or array.flatten()**  Returns a flattened array containing the same elements as the input array.
 	* *Example:* x.ravel() returns a flattened version of array x.
-*  **array.shape**  Returns a tuple representing the dimensions of the array. 
+*  **array.shape**  Returns a tuple representing the dimensions of the array.
 	* *Example:* x.shape returns the dimensions of array x.
-*  **array.strides**  Returns a tuple of bytes to step in each dimension when traversing an array. 
+*  **array.strides**  Returns a tuple of bytes to step in each dimension when traversing an array.
 	* *Example:* x.strides returns the strides of array x.
-*  **array.T**  Returns the transposed array. 
+*  **array.T**  Returns the transposed array.
 	* *Example:* x.T transposes the array x. For higher-dimensional arrays, reverses the order of the axes.
-*  **array[:, np.newaxis] or array[:, None]: Adds a new axis to an array. Example: x[:, np.newaxis] adds a new (singleton) axis at the end of array x.** 
-*  **array[..., 0]**  The ellipsis (...) represents as many colons as needed to produce a complete indexing tuple. 
-	* *Example:* x[..., 0] returns the first element of the last axis of array x. 
-*  **array[condition]**  Returns an array containing elements from the input array where the condition is True. 
+*  **array[:, np.newaxis] or array[:, None]: Adds a new axis to an array. Example: x[:, np.newaxis] adds a new (singleton) axis at the end of array x.**
+*  **array[..., 0]**  The ellipsis (...) represents as many colons as needed to produce a complete indexing tuple.
+	* *Example:* x[..., 0] returns the first element of the last axis of array x.
+*  **array[condition]**  Returns an array containing elements from the input array where the condition is True.
 	* *Example:* x[x > 0] returns an array containing all positive elements of x.
-*  **array[index_array]**  Returns an array containing elements from the input array at the specified indices. 
+*  **array[index_array]**  Returns an array containing elements from the input array at the specified indices.
 	* *Example:* x[[0, 2, 4]] returns an array containing the elements at indices 0, 2, and 4 of x.
-*  **array[start:stop:step]**  Slice elements from index start to stop-1 with a step size of step. Negative indices are interpreted as counting from the end of the array. 
+*  **array[start:stop:step]**  Slice elements from index start to stop-1 with a step size of step. Negative indices are interpreted as counting from the end of the array.
 	* *Example:* x[1:5:2] returns every other element from index 1 to 4 in array x.
-*  **array.real and array.imag**  return the real and imaginary parts of a complex array. 
+*  **array.real and array.imag**  return the real and imaginary parts of a complex array.
 	* *Example:* x.real returns the real part of array x.
-*  **evals, evecs = np.linalg.eigh(a)**  Computes the eigenvalues and eigenvectors of a real symmetric matrix. 
+*  **evals, evecs = np.linalg.eigh(a)**  Computes the eigenvalues and eigenvectors of a real symmetric matrix.
 	* *Example:* np.linalg.eigh(a) computes eigenvalues and eigenvectors of a.
-*  **np.all(condition, [axis=])**  Returns True if all elements of the input array satisfy the condition. Optionally, you can specify the axis along which to operate. 
+*  **np.all(condition, [axis=])**  Returns True if all elements of the input array satisfy the condition. Optionally, you can specify the axis along which to operate.
 	* *Example:* np.all(x > 0, axis=1) checks if all elements in each row of x are greater than 0.
-*  **np.allclose(a, b, [atol=, rtol=])**  Returns True if all elements of two arrays are approximately equal. atol and rtol are optional parameters specifying the absolute and relative tolerances, respectively. 
+*  **np.allclose(a, b, [atol=, rtol=])**  Returns True if all elements of two arrays are approximately equal. atol and rtol are optional parameters specifying the absolute and relative tolerances, respectively.
 	* *Example:* np.allclose(x, y, atol=1e-10, rtol=1e-6) checks if arrays x and y are approximately equal within the specified tolerances.
-*  **np.any(condition, [axis=])**  Returns True if any element of the input array satisfies the condition. Optionally, you can specify the axis along which to operate. 
+*  **np.any(condition, [axis=])**  Returns True if any element of the input array satisfies the condition. Optionally, you can specify the axis along which to operate.
 	* *Example:* np.any(x > 0, axis=0) checks if any element in each column of x is greater than 0.
-*  **np.argmax(x, [axis=])**  Returns the indices of the maximum values along an axis. Optionally, you can specify the axis. 
+*  **np.argmax(x, [axis=])**  Returns the indices of the maximum values along an axis. Optionally, you can specify the axis.
 	* *Example:* np.argmax(x, axis=0) gives the indices of the maximum values along each column.
-*  **np.argmin(x, [axis=])**  Returns the indices of the minimum values along an axis. Optionally, you can specify the axis. 
+*  **np.argmin(x, [axis=])**  Returns the indices of the minimum values along an axis. Optionally, you can specify the axis.
 	* *Example:* np.argmin(x, axis=1) gives the indices of the minimum values along each row.
-*  **np.argsort(x, [axis=])**  Returns the indices that would sort an array. Optionally, you can specify the axis. 
+*  **np.argsort(x, [axis=])**  Returns the indices that would sort an array. Optionally, you can specify the axis.
 	* *Example:* np.argsort(x) gives the indices that would sort each row of the array.
-*  **np.clip(x, a_min, a_max)**  Clips (limits) the values in an array. 
+*  **np.clip(x, a_min, a_max)**  Clips (limits) the values in an array.
 	* *Example:* np.clip(x, 0, 1) clips the values in x to be between 0 and 1.
-*  **np.concatenate((a1, a2, ...), axis=)**  Join a sequence of arrays  along an existing axis. 
+*  **np.concatenate((a1, a2, ...), axis=)**  Join a sequence of arrays  along an existing axis.
 	* *Example:* np.concatenate((x, y), axis=0) concatenates arrays x and y along the first axis.
-*  **np.count_nonzero(x, [axis=])**  Counts the number of non-zero values in the array. Optionally, you can specify the axis along which to operate. 
+*  **np.count_nonzero(x, [axis=])**  Counts the number of non-zero values in the array. Optionally, you can specify the axis along which to operate.
 	* *Example:* np.count_nonzero(x, axis=0) counts the number of non-zero values in each column of x.
-*  **np.cov(x, [ rowvar=False])**  Estimates the covariance matrix of a dataset. x and y are the variables to be considered. rowvar specifies whether each row represents a variable (True) or a sample (False). 
+*  **np.cov(x, [ rowvar=False])**  Estimates the covariance matrix of a dataset. x and y are the variables to be considered. rowvar specifies whether each row represents a variable (True) or a sample (False).
 	* *Example:* np.cov(x, rowvar=False) computes the covariance matrix of  x arranged as columns.
-*  **np.cumprod(x, [axis=])**  Returns the cumulative product of the elements along a given axis. 
+*  **np.cumprod(x, [axis=])**  Returns the cumulative product of the elements along a given axis.
 	* *Example:* np.cumprod(x) returns the cumulative product of elements in array x.
-*  **np.cumsum(x, [axis=])**  Returns the cumulative sum of the elements along a given axis. 
+*  **np.cumsum(x, [axis=])**  Returns the cumulative sum of the elements along a given axis.
 	* *Example:* np.cumsum(x) returns the cumulative sum of elements in array x.
-*  **np.diag(x)**  Extracts the diagonal of a matrix *or* expands a vector into a diagonal matrix. 
+*  **np.diag(x)**  Extracts the diagonal of a matrix *or* expands a vector into a diagonal matrix.
 	* *Example:* np.diag(x) returns the diagonal of matrix x if x is a matrix. np.diag(np.diag(x)) returns a matrix with the diagonal elements of x on the diagonal.
-*  **np.diff(x, [n=, axis=])**  Calculates the n-th discrete difference along the given axis. 
+*  **np.diff(x, [n=, axis=])**  Calculates the n-th discrete difference along the given axis.
 	* *Example:* np.diff(x, n=2) returns the second discrete difference of elements in array x.
-*  **np.digitize(x, bins)**  Returns the indices of the bins to which each value in input array belongs. 
+*  **np.digitize(x, bins)**  Returns the indices of the bins to which each value in input array belongs.
 	* *Example:* np.digitize(x, bins) returns the indices of the bins to which each value in x belongs.
-*  **np.einsum(subscripts, *operands)**  Evaluates the Einstein summation convention on the operands. 
-	* *Example:* np.einsum('ij -> ji', a) transposes a matrix a. Letters are used to label axes. 
-*  **np.extract(condition, x)**  Returns the elements of an array that satisfy a condition. 
+*  **np.einsum(subscripts, *operands)**  Evaluates the Einstein summation convention on the operands.
+	* *Example:* np.einsum('ij -> ji', a) transposes a matrix a. Letters are used to label axes.
+*  **np.extract(condition, x)**  Returns the elements of an array that satisfy a condition.
 	* *Example:* np.extract(x > 0, x) returns the elements of array x that are greater than 0. Same as x[x > 0].
-*  **np.flatten(x)**  Returns a flattened array containing the same elements as the input array. 
+*  **np.flatten(x)**  Returns a flattened array containing the same elements as the input array.
 	* *Example:* np.flatten(x) returns a flattened version of array x.
-*  **np.fft(x)**  Computes the one-dimensional discrete Fourier Transform. 
+*  **np.fft(x)**  Computes the one-dimensional discrete Fourier Transform.
 	* *Example:* np.fft(x) computes the one-dimensional discrete Fourier Transform of array x.
-*  **np.fftfreq(x) and np.rfftfreq(x)**  Computes the sample frequencies for a discrete Fourier Transform. 
+*  **np.fftfreq(x) and np.rfftfreq(x)**  Computes the sample frequencies for a discrete Fourier Transform.
 	* *Example:* np.fftfreq(x) computes the sample frequencies for a discrete Fourier Transform of array x.
-*  **np.floor(x) or np.ceil(x)**  Returns the floor or ceiling (nearest whole number lesser/greater) of each element in the input array. 
+*  **np.floor(x) or np.ceil(x)**  Returns the floor or ceiling (nearest whole number lesser/greater) of each element in the input array.
 	* *Example:* np.floor(x) returns the floor of each element in array x.
-*  **np.full(shape, fill_value, [dtype=])**  Returns a new array of given shape and type, filled with a constant value. 
+*  **np.full(shape, fill_value, [dtype=])**  Returns a new array of given shape and type, filled with a constant value.
 	* *Example:* np.full((3, 3), 5.0) creates a 3x3 array filled with the value 5.0.
-*  **np.gradient(x, [edge_order=])**  Returns the gradient of an N-dimensional array. edge_order specifies the order of the edge used to calculate the gradient. 
+*  **np.gradient(x, [edge_order=])**  Returns the gradient of an N-dimensional array. edge_order specifies the order of the edge used to calculate the gradient.
 	* *Example:* np.gradient(x, edge_order=2) returns the gradient of array x using a second-order edge.
-*  **np.histogram(x, [bins=])**  Computes the histogram of a set of data. bins specifies the number of bins to use. 
+*  **np.histogram(x, [bins=])**  Computes the histogram of a set of data. bins specifies the number of bins to use.
 	* *Example:* np.histogram(x, bins=10) computes the histogram of array x using 10 bins.
-*  **np.ifft(x)**  Computes the one-dimensional inverse discrete Fourier Transform. 
+*  **np.ifft(x)**  Computes the one-dimensional inverse discrete Fourier Transform.
 	* *Example:* np.ifft(x) computes the one-dimensional inverse discrete Fourier Transform of array x.
-*  **np.is[finite, inf, nan](x)**  Returns a boolean array indicating which elements are finite (not infinity or NaN), infinite, or Nan. 
+*  **np.is[finite, inf, nan](x)**  Returns a boolean array indicating which elements are finite (not infinity or NaN), infinite, or Nan.
 	* *Example:* np.isfinite(x) returns a boolean array indicating which elements of x are finite. np.isnan(x) returns a boolean array indicating which elements of x are NaN.
-*  **np.linspace(start, stop, steps)**  Returns evenly spaced numbers over a specified interval. 
+*  **np.linspace(start, stop, steps)**  Returns evenly spaced numbers over a specified interval.
 	* *Example:* np.linspace(0, 1, 11) returns 11 evenly spaced numbers between 0 and 1.
-*  **np.linalg.cond(a, [p=])**  Computes the condition number of a matrix. p is an optional parameter specifying the norm used in the calculation (default is 2-norm). 
+*  **np.linalg.cond(a, [p=])**  Computes the condition number of a matrix. p is an optional parameter specifying the norm used in the calculation (default is 2-norm).
 	* *Example:* np.linalg.cond(a, p=2) computes the 2-norm condition number of matrix a.
-*  **np.linalg.det(a)**  Computes the determinant of a square matrix. 
+*  **np.linalg.det(a)**  Computes the determinant of a square matrix.
 	* *Example:* np.linalg.det(a) computes the determinant of matrix a.
-*  **np.linalg.inv(a)**  Computes the multiplicative inverse of a matrix. 
+*  **np.linalg.inv(a)**  Computes the multiplicative inverse of a matrix.
 	* *Example:* np.linalg.inv(a) computes the inverse of matrix a if it exists. Raises an error if the matrix is singular or not square.
-*  **np.linalg.norm(x, [ord=, axis=])**  Computes the norm of a vector or matrix. ord specifies the type of norm to compute (default is L2 norm). axis specifies the axis that is reduced over. 
+*  **np.linalg.norm(x, [ord=, axis=])**  Computes the norm of a vector or matrix. ord specifies the type of norm to compute (default is L2 norm). axis specifies the axis that is reduced over.
 	* *Example:* np.linalg.norm(x, ord=2, axis=1) computes L2 norms of rows in a matrix.
-*  **np.linalg.pinv(a)**  Computes the (Moore-Penrose) pseudo-inverse of a matrix. rcond is an optional parameter specifying the singular values below which singular values are considered zero. 
+*  **np.linalg.pinv(a)**  Computes the (Moore-Penrose) pseudo-inverse of a matrix. rcond is an optional parameter specifying the singular values below which singular values are considered zero.
 	* *Example:* np.linalg.pinv(a, rcond=1e-15) computes the pseudo-inverse of matrix a with a specified tolerance for singular values.
-*  **np.loadtxt(fname)**  Loads data from a text file. fname is the name of the file to load. 
+*  **np.loadtxt(fname)**  Loads data from a text file. fname is the name of the file to load.
 	* *Example:* np.loadtxt('data.txt') loads data from the file data.txt.
-*  **np.max(x, [axis=])**  Returns the maximum value along an axis. Optionally, you can specify the axis. 
+*  **np.max(x, [axis=])**  Returns the maximum value along an axis. Optionally, you can specify the axis.
 	* *Example:* np.max(x, axis=0) computes the maximum values along each column.
-*  **np.mean(x, [axis=])**  Reduction; computes the mean over an array. Optionally only reduces over the specified axes. 
+*  **np.mean(x, [axis=])**  Reduction; computes the mean over an array. Optionally only reduces over the specified axes.
 	* *Example:* np.mean(x, axis=1)
-*  **np.meshgrid(*xi, **kwargs)**  Returns coordinate matrices from coordinate vectors. 
+*  **np.meshgrid(*xi, **kwargs)**  Returns coordinate matrices from coordinate vectors.
 	* *Example:* X, Y = np.meshgrid(x, y) creates 2D grids of coordinates X and Y from 1D arrays x and y, respectively.
-*  **np.min(x, [axis=])**  Returns the minimum value along an axis. Optionally, you can specify the axis. 
+*  **np.min(x, [axis=])**  Returns the minimum value along an axis. Optionally, you can specify the axis.
 	* *Example:* np.min(x, axis=1) computes the minimum values along each row.
-*  **np.nan[min, max, sum, prod, mean, cumsum, cumprod, argmin, argmax, std, median]**  Returns the minimum, maximum, etc. of an array ignoring NaN values. 
+*  **np.nan[min, max, sum, prod, mean, cumsum, cumprod, argmin, argmax, std, median]**  Returns the minimum, maximum, etc. of an array ignoring NaN values.
 	* *Example:* np.nanmean(x) returns the mean of array x ignoring NaN values.
-*  **np.nextafter(x1, x2)**  Returns the next floating-point value after x1 towards x2. 
+*  **np.nextafter(x1, x2)**  Returns the next floating-point value after x1 towards x2.
 	* *Example:* np.nextafter(1.0, 2.0) returns the next floating-point value after 1.0 towards 2.0.
-*  **np.nonzero(a)**  Return the indices of the elements that are non-zero. 
+*  **np.nonzero(a)**  Return the indices of the elements that are non-zero.
 	* *Example:* np.nonzero(x) returns a tuple of arrays representing the indices of non-zero elements in x.
-*  **np.ones(shape, [dtype=])**  Returns a new array of given shape and type, filled with ones. 
+*  **np.ones(shape, [dtype=])**  Returns a new array of given shape and type, filled with ones.
 	* *Example:* np.ones((3, 2), dtype=float) creates a 3x2 array filled with ones.
-*  **np.ravel(x)**  Returns a flattened array containing the same elements as the input array. 
+*  **np.ravel(x)**  Returns a flattened array containing the same elements as the input array.
 	* *Example:* np.ravel(x) returns a flattened version of array x.
-*  **np.repeat(a, repeats, [axis=])**  Repeats elements of an array. The repeats argument specifies the number of repetitions for each element. Optionally, you can specify the axis along which to repeat values. 
+*  **np.repeat(a, repeats, [axis=])**  Repeats elements of an array. The repeats argument specifies the number of repetitions for each element. Optionally, you can specify the axis along which to repeat values.
 	* *Example:* np.repeat(x, 3, axis=1) repeats each column of x three times.
-*  **np.reshape(x, newshape)**  Gives a new shape to an array without changing its data. 
+*  **np.reshape(x, newshape)**  Gives a new shape to an array without changing its data.
 	* *Example:* np.reshape(x, (2, 3)) reshapes array x to a 2x3 matrix. Cannot change the total number of elements.
-*  **np.rfft(x) and np.irfft(x)**  Computes the one-dimensional discrete Fourier Transform for real input. 
+*  **np.rfft(x) and np.irfft(x)**  Computes the one-dimensional discrete Fourier Transform for real input.
 	* *Example:* np.rfft(x) computes the one-dimensional discrete Fourier Transform of real array x.
-*  **np.savetxt(fname, x)**  Saves an array to a text file. fname is the name of the file to save to. 
+*  **np.savetxt(fname, x)**  Saves an array to a text file. fname is the name of the file to save to.
 	* *Example:* np.savetxt('data.txt', x) saves array x to the file data.txt.
-*  **np.searchsorted(a, v, [side=])**  Finds indices where elements should be inserted to maintain order. a is the input array and v is the values to insert. side specifies whether to return the first index (left) or last index (right) if the value is repeated. 
+*  **np.searchsorted(a, v, [side=])**  Finds indices where elements should be inserted to maintain order. a is the input array and v is the values to insert. side specifies whether to return the first index (left) or last index (right) if the value is repeated.
 	* *Example:* np.searchsorted(a, v, side='left') returns the indices where values v should be inserted into array a to maintain order.
-*  **np.seterr()**  change trapping of floating point exceptions. 
+*  **np.seterr()**  change trapping of floating point exceptions.
 	* *Example:* np.seterr(divide='ignore') ignores division by zero errors.
-*  **np.sign(x)**  Returns an array of the same shape as x with elements indicating the sign of each element in the input array. Positive elements are represented as 1, negative elements as -1, and zeros as 0. 
+*  **np.sign(x)**  Returns an array of the same shape as x with elements indicating the sign of each element in the input array. Positive elements are represented as 1, negative elements as -1, and zeros as 0.
 	* *Example:* np.sign(x) returns an array with the signs of elements in x.
-*  **np.sort(x, [axis=])**  Returns a sorted copy of an array. Optionally, you can specify the axis. 
+*  **np.sort(x, [axis=])**  Returns a sorted copy of an array. Optionally, you can specify the axis.
 	* *Example:* np.sort(x, axis=0) sorts each column of the array.
-*  **np.squeeze(x, [axis=])**  Removes single-dimensional entries from the shape of an array. Optionally, you can specify the axis to remove particular dimensions. 
+*  **np.squeeze(x, [axis=])**  Removes single-dimensional entries from the shape of an array. Optionally, you can specify the axis to remove particular dimensions.
 	* *Example:* np.squeeze(x, axis=1) removes the second dimension if it has size 1.
-*  **np.stack(arrays, axis=)**  Join arrays *of the same shapealong a new axis. 
+*  **np.stack(arrays, axis=)**  Join arrays *of the same shapealong a new axis.
 	* *Example:* np.stack((x, y)) stacks arrays x and y and adds a new dimension at the front.
-*  **np.std(x, [axis=])**  Computes the standard deviation along the specified axis. 
+*  **np.std(x, [axis=])**  Computes the standard deviation along the specified axis.
 	* *Example:* np.std(x, axis=0) computes the standard deviation of each column of x.
-*  **np.sum(x, [axis=])**  Reduction; computes the sum over an array. Optionally only reduces over the specified axes. 
+*  **np.sum(x, [axis=])**  Reduction; computes the sum over an array. Optionally only reduces over the specified axes.
 	* *Example:* np.sum(x, axis=0)
-*  **np.swapaxes(x, axis1, axis2)**  Interchanges two axes of an array. 
+*  **np.swapaxes(x, axis1, axis2)**  Interchanges two axes of an array.
 	* *Example:* np.swapaxes(x, 0, 1) swaps the first and second axes of array x.
-*  **np.tile(x, reps)**  Construct an array by repeating x the number of times given by reps. 
+*  **np.tile(x, reps)**  Construct an array by repeating x the number of times given by reps.
 	* *Example:* np.tile(x, (2, 3)) creates a 2x3 tiling of x.
-*  **np.trace(a, [offset=, axis1=, axis2=])**  Computes the sum along diagonals of a square matrix. offset is an optional parameter specifying the diagonal in question (0 for the main diagonal). axis1 and axis2 specify the axes along which to compute the trace for higher-dimensional arrays. 
+*  **np.trace(a, [offset=, axis1=, axis2=])**  Computes the sum along diagonals of a square matrix. offset is an optional parameter specifying the diagonal in question (0 for the main diagonal). axis1 and axis2 specify the axes along which to compute the trace for higher-dimensional arrays.
 	* *Example:* np.trace(a, offset=1) computes the sum of elements above the main diagonal of the matrix a.
 *  **np.transpose(x)**  Reverses the dimensions of an array
-*  **np.unravel_index(indices, shape)**  Converts a flat index or array of flat indices into a tuple of coordinate arrays. 
+*  **np.unravel_index(indices, shape)**  Converts a flat index or array of flat indices into a tuple of coordinate arrays.
 	* *Example:* np.unravel_index(22, (3, 4)) converts index 22 in a 3x4 array to coordinates (5, 2). Useful for converting argmin/argmax results to coordinates.
-*  **np.where(condition, [x=, y=])**  Return elements chosen from x or y depending on the condition. If only condition is provided, it returns the indices where condition is True. If x and y are provided, it returns elements from x where condition is True, and from y where condition is False. 
+*  **np.where(condition, [x=, y=])**  Return elements chosen from x or y depending on the condition. If only condition is provided, it returns the indices where condition is True. If x and y are provided, it returns elements from x where condition is True, and from y where condition is False.
 	* *Example:* np.where(x > 0, x, 0) replaces negative elements in x with 0.
-*  **np.zeros(shape, [dtype=])**  Returns a new array of given shape and type, filled with zeros. 
+*  **np.zeros(shape, [dtype=])**  Returns a new array of given shape and type, filled with zeros.
 	* *Example:* np.zeros((2, 3), dtype=int) creates a 2x3 array filled with zeros.
-*  **rng = np.random.default_rng()**  Creates a random number generator. 
+*  **rng = np.random.default_rng()**  Creates a random number generator.
 	* *Example:* rng = np.random.default_rng() creates a random number generator rng.
-*  **rng.normal(loc=, scale=, size=)**  Returns an array of random samples from a normal distribution. loc specifies the mean, scale specifies the standard deviation, and size specifies the shape of the output array. 
+*  **rng.normal(loc=, scale=, size=)**  Returns an array of random samples from a normal distribution. loc specifies the mean, scale specifies the standard deviation, and size specifies the shape of the output array.
 	* *Example:* rng.normal(loc=0.0, scale=1.0, size=(2, 3)) returns a 2x3 array of samples from a standard normal distribution.
-*  **rng.permutation(x)**  Randomly permutes a sequence, or returns a permuted range. 
+*  **rng.permutation(x)**  Randomly permutes a sequence, or returns a permuted range.
 	* *Example:* rng.permutation(x) returns a randomly permuted version of array x.
-*  **rng.randint(low=, high=, size=)**  Returns an array of random integers from low (inclusive) to high (exclusive). size specifies the shape of the output array. 
+*  **rng.randint(low=, high=, size=)**  Returns an array of random integers from low (inclusive) to high (exclusive). size specifies the shape of the output array.
 	* *Example:* rng.randint(low=0, high=10, size=(2, 3)) returns a 2x3 array of random integers from 0 to 9.
-*  **rng.uniform(low=, high=, size=)**  Returns an array of random samples from a uniform distribution. low specifies the lower bound, high specifies the upper bound, and size specifies the shape of the output array. 
+*  **rng.uniform(low=, high=, size=)**  Returns an array of random samples from a uniform distribution. low specifies the lower bound, high specifies the upper bound, and size specifies the shape of the output array.
 	* *Example:* rng.uniform(low=-1.0, high=1.0, size=(2, 3)) returns a 2x3 array of samples from a uniform distribution over [-1, 1).
-*  **u, s, vt = np.linalg.svd(a)**  Computes the singular value decomposition of a matrix.  
+*  **u, s, vt = np.linalg.svd(a)**  Computes the singular value decomposition of a matrix.
 	* *Example:* np.linalg.svd(a) returns the singular value decomposition of matrix a.

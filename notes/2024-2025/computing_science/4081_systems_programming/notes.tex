@@ -14,7 +14,7 @@
 
 The preprocessor expands macros and includes files (`-E').
 In the compiling stage, the source code is parsed and turned into an intermediate representation (`-emit-llvm -S').
-Machine-specific assembly code is generated (`-S'). 
+Machine-specific assembly code is generated (`-S').
 Machine code is generated in an object file (`-c').
 The linker combines object files and libraries to create an executable,
 checks all functions have machine code available, complains if not.
@@ -67,7 +67,7 @@ const float * ptr: ptr is a pointer to a constant float.
 const float * const ptr: ptr is a constant pointer to a constant float.
 ptr[i] and * (ptr + i) are the same.
 \texttt{ptr->member} is the same as (*ptr).member.
-Dereferencing a pointer is unsafe. 
+Dereferencing a pointer is unsafe.
 Dereferencing a void pointer is forbidden.
 Heap is part of memory reserved for dynamic allocation.
 It is safe to call free (NULL).
@@ -121,7 +121,7 @@ Bust Waiting: one thread is waiting for another thread to release a lock, wastes
 
 \subsubsection*{Condition Variables and Coordination}
 use condition variables to wake up threads that are waiting for a condition to be true.
-Important thread coordination aspects: 
+Important thread coordination aspects:
 partitioning: what parts of the computation should be separatel evaluated,
 data sharing: what data to share between threads,
 synchronisation: ensuring threads can cooperate without interference.
@@ -137,7 +137,7 @@ Pass by pointer: \texttt{([l\_ptr = \&l])}.
 Capture all variables by value: \texttt{([=] (parameters) -> return type { body })}.
 Capture all variables by reference: \texttt{([\&] (parameters) -> return type { body })}.
 Capture a specific variable by value: \texttt{([x] (parameters) -> return type { body })}.
-Capture a specific variable by reference: \texttt{([\&x] (parameters) -> return type { body })}. 
+Capture a specific variable by reference: \texttt{([\&x] (parameters) -> return type { body })}.
 
 \subsubsection*{Asynchronous Programming (std::async, std::future, std::promise, std::packaged\_task)}
 Std::async: \texttt{std::async(std::launch::async, function, args...)}
@@ -153,7 +153,7 @@ Promise is a container for a future value.
 
 A promise allows you to provide a value once it has been computed.
 
-Without future and promise the value would have to be explicitly protected by a 
+Without future and promise the value would have to be explicitly protected by a
 mutex and a condition variable that could be used to wait for the value to be computed.
 
 Std::packaged\_task: \texttt{std::packaged\_task<T> pt(function)}

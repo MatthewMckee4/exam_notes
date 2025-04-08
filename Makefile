@@ -14,7 +14,7 @@ clean:
 	find . -name '*.nav' -exec rm -rf {} +
 	find . -name '*.snm' -exec rm -rf {} +
 	find . -name '*.vrb' -exec rm -rf {} +
-	find . -name '*.pdf' -not -path './notes/2024-2025/computing_science/4073_data_fundamentals/fact_sheets/*' -exec rm -rf {} +
+	find . -name '*.pdf' -not -path './notes/2024-2025/computing_science/data_fundamentals/fact_sheets/*' -exec rm -rf {} +
 
 compile:
 	find . -name '*.tex' -execdir pdflatex {} \;

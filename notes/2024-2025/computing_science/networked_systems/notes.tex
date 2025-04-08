@@ -149,6 +149,64 @@ If a client and server have previously communicated, they can re-use a key (0-RT
 \textbf{Limitations of TLS}: does not encrypt server name, operates within TCP connection, relies on a PKI to validate public keys.
 
 
+\subsection*{Improving Secure Connection Establishment}
+
+% 4a
+\noindent \textbf{Limitations of TLS}.
+Connection establishment is still relatively slow, and so first data is sent 2x RTT after the start.
+Connection establishment leaks potentially sensitive metadata
+The protocol is ossified due to middlebox interference
+\textbf{0-RTT Connection Reestablishment}: reuse a preshared key agreed in previous TLS session.
+Server sends a PreSharedKey with a SessionTicket to identify the key
+When reestablishing a connection: Client sends SessionTicket, data encrypted using corresponding
+PreSharedKey, along with ClientHello. The server uses SessionTicket to find saved PreSharedKey,
+decrypt the data.
+0-RTT data sent with ClientHello using a PreSharedKey is not forward secret.
+If a session where PreSharedKey is distributed is compromised,
+0-RTT data sent using that key in future connections will also be compromised
+\textbf{TLS Metadata Leakage}: server name and PreSharedKey are not encrypted
+\textbf{TLS Protocol Ossification}: Some TLS servers fail if ClientHello uses unexpected version number.
+TLS 1.3 says its using TLS 1.2, but it says in the header that it is using TLS 1.3.
+\textbf{How to Avoid Protocol Ossification}:
+Generate random extensions and sustain extensibility: send random extensions that are ignored.
+
+% 4b
+\noindent \textbf{QUIC Transport Protocol}:
+What’s wrong with TLS v1.3 over TCP?,
+Slow to connect – due to sequential TCP and TLS handshakes,
+Leaks some metadata,
+Ossified and hard to extend
+QUIC aims to replace TLS v1.3 and TCP with a single secure transport protocol,
+Reduce latency by overlapping TLS and transport handshake,
+Avoid metadata leakage via pervasive encryption,
+Avoid ossification via systematic application of GREASE and encryption
+QUIC replaces TCP, TLS, and parts of HTTP
+QUIC sends and receives streams of data within a connection.
+Up to 262 different streams in each direction in a single QUIC connection
+A connection comprises QUIC packets sent within UDP datagrams
+\textbf{QUIC Headers}. QUIC packets can be long header packets or short header packets.
+Long header packets are used to establish a connection.
+Four different long-header packet types, denoted
+by the TT field in the header:,
+Initial – initiates connection, starts TLS handshake,
+0-RTT – idempotent data sent with initial handshake, when resuming a session,
+Handshake – completes connection establishment,
+Retry – used to force address validation
+The is one short header packet defined in QUIC:
+1-RTT – Used for all packets sent after the TLS handshake is complete
+QUIC packet contain an encrypted sequence of frames
+
+% 4c
+\noindent \textbf{QUIC Connection Establishment}. A QUIC connection proceeds in two phases: handshake and data transfer.
+\textbf{C} $\rightarrow$ \textbf{S}: QUIC Initial packet
+\textbf{S} $\rightarrow$ \textbf{C}: QUIC Initial and Handshake Packet
+\textbf{C} $\rightarrow$ \textbf{S}: QUIC Initial, Handshake, and 1-RTT Packet
+Initial packet contains a CRYPTO frame that contains TLS ClientHello or ServerHello.
+
+
+
+
+
 
 
 

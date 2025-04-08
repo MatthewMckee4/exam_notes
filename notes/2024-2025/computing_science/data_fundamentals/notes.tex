@@ -12,18 +12,23 @@
 
 \subsection*{Arrays}
 
-2 $\times$ 3 means 2 rows, 3 columns.
-Rank 1 tensor is 1D array.
-empty, zeros, ones, full.
-arange (start, stop, step).
-concatenate to join along existing dimension.
-stack to stack up arrays along new dimension.
-Tiling to repeat an array.
-Broadcasting:
-Repeat and pad.
-(2, 3), accepted are (2, 3), (1, 3), (2, 1), (3,).
-Reduction: apply a function to reduce the array to a single value.
-or with axis to reduce along a specific axis.
+\subsubsection*{Basic Concepts}
+2 $\times$ 3 means 2 rows, 3 columns.  
+Rank 1 tensor is 1D array.  
+empty, zeros, ones, full.  
+arange (start, stop, step).  
+concatenate to join along existing dimension.  
+stack to stack up arrays along new dimension.  
+Tiling to repeat an array.  
+
+\subsubsection*{Broadcasting}
+Broadcasting:  
+Repeat and pad.  
+(2, 3), accepted are (2, 3), (1, 3), (2, 1), (3,).  
+
+\subsubsection*{Reduction and Accumulation}
+Reduction: apply a function to reduce the array to a single value.  
+or with axis to reduce along a specific axis.  
 Accumulate: apply a function to reduce the array to a single value.
 
 \subsection*{NumPy Functions}
@@ -43,47 +48,57 @@ Accumulate: apply a function to reduce the array to a single value.
 np.concatenate((x, y), axis=0): join arrays along existing axis (0 -> vertical, 1 -> horizontal).
 
 \subsection*{Floats}
-Float exceptions:
-Invalid operation, divide by zero, overflow, underflow, inexact.
-np.allclose.
-Stride: number of bytes between each element in an axis.
-float = sign * 2\^{exponent} * 1.mantissa
-dope vector:
-numpy arrays hold dopy vectors: stiding information.
-Rank preserving: The number of dimensions is the same.
-Rank reducing: The number of dimensions is reduced.
-Rank promoting: The number of dimensions is increased.
-Add singleton dimensions: x[:, np.newaxis]
-Remove singleton dimensions: np.squeeze (x)
-Elided axes: [0, \ldots, 4]
-Swapping and rearranging: np.swapaxes, np.rollaxis, np.moveaxis, np.transpose
+
+\subsubsection*{Float Exceptions}
+Float exceptions:  
+Invalid operation, divide by zero, overflow, underflow, inexact.  
+np.allclose.  
+
+\subsubsection*{Stride and Representation}
+Stride: number of bytes between each element in an axis.  
+float = sign * 2\^{exponent} * 1.mantissa  
+dope vector:  
+numpy arrays hold dopy vectors: stiding information.  
+
+\subsubsection*{Rank and Dimensions}
+Rank preserving: The number of dimensions is the same.  
+Rank reducing: The number of dimensions is reduced.  
+Rank promoting: The number of dimensions is increased.  
+Add singleton dimensions: x[:, np.newaxis]  
+Remove singleton dimensions: np.squeeze (x)  
+Elided axes: [0, \ldots, 4]  
+Swapping and rearranging: np.swapaxes, np.rollaxis, np.moveaxis, np.transpose  
 Einsum: Einstein summation convention. Used to reorder high-dimensional arrays.
 
 \subsection*{Scientific Visualisation}
 
-A \textbf{stat} computes statistics from data, such as means (mean, median, max, min,  etc.)
-A \textbf{mapping} transforms data attributes into visual values.
-A \textbf{scale} specifies how units are transformed.
-A \textbf{coord} system connects mapped data onto points on a plane.
-A \textbf{guide} provides visual references like tick marks, labels, and legends to explain the mapping's meaning.
-A \textbf{geom} is the geometric representation of mapped data.
-A \textbf{layer} consists of one set of geoms with one mapping on one coordinate system, and multiple layers can be overlaid.
-A \textbf{facet} shows a different view of the same dataset on a separate coordinate system.
-A \textbf{figure} is a collection of one or more facets. Finally.
+\subsubsection*{Basic Terminology}
+A \textbf{stat} computes statistics from data, such as means (mean, median, max, min,  etc.)  
+A \textbf{mapping} transforms data attributes into visual values.  
+A \textbf{scale} specifies how units are transformed.  
+A \textbf{coord} system connects mapped data onto points on a plane.  
+A \textbf{guide} provides visual references like tick marks, labels, and legends to explain the mapping's meaning.  
+A \textbf{geom} is the geometric representation of mapped data.  
+A \textbf{layer} consists of one set of geoms with one mapping on one coordinate system, and multiple layers can be overlaid.  
+A \textbf{facet} shows a different view of the same dataset on a separate coordinate system.  
+A \textbf{figure} is a collection of one or more facets. Finally.  
 A \textbf{caption} explains the visualization to the reader.
 
-\noindent Avoid rescaled units. Facet: different view of the same dataset.
+\noindent Avoid rescaled units. Facet: different view of the same dataset.  
 Regression: fit a line to the data. Smoothing: fit a curve to the data.
 
-\noindent Geoms: markers: geoms that represent bare points.
-Colour changes: percaptually uniform, monotonic brightness.
+\subsubsection*{Geoms and Aesthetics}
+\noindent Geoms: markers: geoms that represent bare points.  
+Colour changes: percaptually uniform, monotonic brightness.  
 
-\noindent Geometric representations, or \textbf{geoms}, that connect points together should be used if it makes sense to ask what is between two data points.
-\textbf{Line styles} can have variable thickness, variable color, and dash patterns to enhance the visual representation of the data.
-For example, the staircase plot is useful when we know that the value cannot have changed between measurements (e.g., in a coin toss scenario).
-This type of plot connects points but keeps the value fixed until a new data point is observed.
+Geometric representations, or \textbf{geoms}, that connect points together should be used if it makes sense to ask what is between two data points.  
+\textbf{Line styles} can have variable thickness, variable color, and dash patterns to enhance the visual representation of the data.  
+
+\noindent For example, the staircase plot is useful when we know that the value cannot have changed between measurements (e.g., in a coin toss scenario).  
+This type of plot connects points but keeps the value fixed until a new data point is observed.  
 Conversely, if measurements are naturally discrete, a bar chart may be more suitable to represent the data effectively.
 
+\subsubsection*{Transparency (Alpha)}
 \noindent A \textbf{geom} can be rendered with different levels of transparency,
 referred to as \textbf{alpha} (equivalent to opacity) or
 \textbf{transparency} (the inverse of opacity).
@@ -93,28 +108,21 @@ while maintaining visibility of others.
 However, it is important to use transparency judiciously, as excessive
 transparency can make graphs difficult to read.
 
-\noindent Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.
-
-\noindent log scales: semilog, loglog. Symmetric log scales: logit, log.
-
+\subsubsection*{Axes and Coordinates}
+\noindent Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.  
+\noindent log scales: semilog, loglog. Symmetric log scales: logit, log.  
 \noindent polar coordinates: useful for circular data.
 
-\noindent Facets and layers: ways of crating graphs with multiple geoms.
-\textbf{Distinct layers} superimposed on the same set of coords.
+\subsubsection*{Facets and Layers}
+\noindent Facets and layers: ways of crating graphs with multiple geoms.  
+\textbf{Distinct layers} superimposed on the same set of coords.  
 \textbf{Distinct facets} on separate sets of coords.
 
+\subsubsection*{Communicating Uncertainty}
 \noindent \textbf{Communicating Uncertainty}:
 
 
-
-
-
-
-
-
 \subsection*{Linear Algebra}
-
-
-
+\noindent (Empty section as of now)
 
 \end{document}

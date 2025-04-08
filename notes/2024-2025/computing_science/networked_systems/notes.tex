@@ -229,6 +229,7 @@ Supports multiple streams within a single connection.
 Libraries and support new, poorly documented, and frequently buggy.
 CPU usage is high compared to TLS-over-TCP.
 
+
 \subsection*{Reliability and Data Transfer}
 
 % 5a
@@ -257,9 +258,77 @@ Sequence numbers start from the value sent in the TCP handshake.
 Segments sent to acknowledge each received segment – contains acknowledgment number indicating sequence number of the next
 contiguous byte expected.
 Can send delayed acknowledgements if there is no data to send in reverse direction.
+\textbf{Loss Detection}: TCP treats a triple duplicate acknowledgement – four consecutive acknowledgements for the same sequence
+number – as an indication of packet loss
+\textbf{Head-of-line Blocking in TCP}: TCP segments are sent in order, if a segment is lost, all subsequent segments are held up.
+
+% 5d
+\noindent \textbf{Reliable Data Transfer with QUIC}.
+QUIC delivers several ordered reliable byte streams within a single connection.
+Each QUIC packet has a packet number.
+Within each space, packet number starts at zero, increases by one for each packet sent.
+QUIC doesn’t preserve message boundaries in streams.
+If data written to stream is too small for a packet, it may be
+delayed and sent with other data to fill complete packet.
+Acknowledgements can be delayed.
+Acknowledgements contain ranges.
+Order is not preserved between streams within a QUIC connection.
 
 
+\subsection*{Lowering Latency}
 
+% 6a
+\noindent \textbf{TCP Congestion Control}.
+\textbf{Principles}: packet loss as a congestion signal, additive increase, multiplicative decrease.
+\textbf{IP Routers} perform \textbf{Routing} (receive packets and determine route to destination) and
+\textbf{Forwarding} (enqueue packet on outgoing link).
+\textbf{ACK clocking}: each acknowledgement `clocks out' the next packet.
+TCP uses window-based congestion control.
 
+% 6b
+\noindent \textbf{TCP Reno}.
+\textbf{Congestion window}: number of packets to be sent before an acknowledgement arrives.
+\textbf{Initial window} is typically 1-10 packets.
+Use \textbf{slow start} by doubling the congestion window after each acknowledgement until a packet is lost,
+then reset sending rate to last know good rate.
+The switch to \textbf{congestion avoidance}: linear increase (+1) in window size until a packet is lost, then multiplicative decrease (*0.5)
+If a packet is lost and detected via timeout: reset to initial window size.
+$timeout = \max(1 second, average RTT + (4 x RTT variance))$
+Effective at keeping bottleneck link fully utilised.
+Trades some extra delay to maintain throughput.
+Congestion avoidance phase takes long time to use increased capacity.
+Performs poorly on fast long-distance networks.
+
+% 6c
+\noindent \textbf{TCP Cubic}.
+More aggresive (multiplicative decrease 0.7).
+$W_{\text{cubic}} = C (t - K)^3 + W_{\text{max}}$.
+$W_{\text{max}}$ window size before packet loss.
+$t$ time since packet loss.
+$K$ time to increase window back to $W_{\text{max}}$.
+$C = 0.4$ constant to control fairness to Reno.
+
+% 6d
+\noindent \textbf{TCP Vegas: Delay-based Congestion Control}
+Watches for the increase in delay as the queue starts to fill up and slows down before the queue overflows.
+Still uses slow start.
+Measure BaseRTT, Calculate ExpectedRate = w / BaseRTT, measure ActualRate.
+If ExpectedRate - ActualRate < R1 then additive increase to window.
+If ExpectedRate - ActualRate > R2 then additive decrease to window.
+Since Reno and Cubic are aggressive, this forces Vegas to slow down and the cycle repeats until rate drops to zero.
+So Vegas is not used. TCP Bottleneck Bandwidth \& RTT attempts to make delay-based congestion work.
+
+% 6e
+\noindent \textbf{Explicit Congestion Notification (ECN)}.
+Why not have the network tell TCP congestion is occurring? ECN field in IP header.
+00 doesnt support.
+01 ECN capable.
+11 congestion occurs.
+Routers signal congestion before queues overflow.
+
+% 6f
+\noindent \textbf{Impact of propagation delay on latency}.
+Time packets spend in queues.
+Time packets spend propagating down links between routers.
 
 \end{document}

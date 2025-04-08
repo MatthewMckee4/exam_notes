@@ -15,7 +15,7 @@
 
 \footnotesize
 
-\subsection*{The changing Internet}
+\subsection*{The Changing Internet}
 
 \noindent \textbf{Networked System:} A cooperating set of autonomous computing devices that exchange data to perform some application goal
 
@@ -168,7 +168,7 @@ If a session where PreSharedKey is distributed is compromised,
 \textbf{TLS Protocol Ossification}: Some TLS servers fail if ClientHello uses unexpected version number.
 TLS 1.3 says its using TLS 1.2, but it says in the header that it is using TLS 1.3.
 \textbf{How to Avoid Protocol Ossification}:
-Generate random extensions and sustain extensibility: send random extensions that are ignored.
+\textbf{GREASE}: Generate random extensions and sustain extensibility: send random extensions that are ignored.
 
 % 4b
 \noindent \textbf{QUIC Transport Protocol}:
@@ -201,10 +201,62 @@ QUIC packet contain an encrypted sequence of frames
 \textbf{C} $\rightarrow$ \textbf{S}: QUIC Initial packet
 \textbf{S} $\rightarrow$ \textbf{C}: QUIC Initial and Handshake Packet
 \textbf{C} $\rightarrow$ \textbf{S}: QUIC Initial, Handshake, and 1-RTT Packet
-Initial packet contains a CRYPTO frame that contains TLS ClientHello or ServerHello.
+Initial packet contains a CRYPTO frame that contains TLS ClientHello or ServerHello, also synchronises the client and server state.
+QUIC Initial packets also carry optional Token Server can refuse the initial connection attempt,
+and send a Retry packet containing a Token.
+Client must then retry the connection, providing the Token in its Initial packet
+QUIC supports TLS 0-RTT session re-establishment: QUIC Initial packet contains CRYPTO frame with a TLS ClientHello
+and a SessionTicket QUIC 0-RTT packet included in the same UDP datagram contains a STREAM frame carrying idempotent 0-RTT data:
+\textbf{Data Transfer}. After handshake has finished, QUIC switches to sending short header packets
+The short header contains a Packet Number field, Packet numbers increase by one for each packet sent.
+ACK frames indicate received packet numbers. QUIC packet numbers count packets sent; TCP sequence numbers count bytes of data sent.
+QUIC never retransmits packets – retransmits frames sent in lost packets in new packets, with new packet numbers
+QUIC sends acknowledgements of received packets in ACK frames.
+Sent inside a long- or short-header packets; unlike TCP, not part of headers.
+Indicate sequence numbers of QUIC packets that were received, not frames
+Data is sent within STREAM frames, sent within QUIC packets, contains a stream identifier, offset of the data, data length and data.
 
+% 4d
+\noindent \textbf{QUIC over UDP}. Why run QUIC over UDP? To ease end-system deployment.
+To work around protocol ossification.
+Entire packet except invariant fields and the last 7-bits of the first byte is encrypted.
+QUIC authenticates all data.
+\textbf{Why is QUIC desirable?}.
+Reduces secure connection establishment latency.
+Reduces risk of ossification; easy to deploy.
+Supports multiple streams within a single connection.
+\textbf{Why is QUIC problematic?}.
+Libraries and support new, poorly documented, and frequently buggy.
+CPU usage is high compared to TLS-over-TCP.
 
+\subsection*{Reliability and Data Transfer}
 
+% 5a
+\noindent \textbf{Packet Loss in the Internet}.
+The Internet is a best effort packet delivery network – it is unreliable.
+IP packets may be lost, delayed, reordered, or corrupted in transit.
+Only put functionality that is absolutely necessary in the network, leave everything else to end systems.
+If a connection is to be reliable, it cannot guarantee timeliness.
+If a connection is to be timely, it cannot guarantee reliability.
+
+% 5b
+\noindent \textbf{Unreliable Data Using UDP}.
+The \texttt{sendto ()} call sends a single datagram.
+Each call to \texttt{sendto ()} can send to a different address, even though they use the same socket.
+The \texttt{recv ()} call may be used to read a single datagram, but doesn’t provide the source address of the datagram.
+Most code uses \texttt{recvfrom ()} instead – this fills in the source address of the received datagram.
+UDP does not attempt to provide sequencing, reliability, or timing recovery.
+
+% 5c
+\noindent \textbf{Reliable Data Using TCP}.
+TCP ensures data delivered reliably and in order.
+TCP sends acknowledgements for segments as they are received; retransmits lost data.
+TCP will recover original transmission order if segments are delayed and arrive out of order.
+\textbf{TCP Segments and Sequence Numbers}. Data is split into segments, with a sequence number, each placed in a TCP packet.
+Sequence numbers start from the value sent in the TCP handshake.
+Segments sent to acknowledge each received segment – contains acknowledgment number indicating sequence number of the next
+contiguous byte expected.
+Can send delayed acknowledgements if there is no data to send in reverse direction.
 
 
 

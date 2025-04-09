@@ -22,6 +22,10 @@ Text as Data:
 - changed-files:
   - any-glob-to-any-file: notes/2024-2025/computing_science/text_as_data/**
 
+Algebra:
+- changed-files:
+  - any-glob-to-any-file: notes/2024-2025/maths/algebra/**
+
 Github Actions:
 - changed-files:
   - any-glob-to-any-file: .github/**

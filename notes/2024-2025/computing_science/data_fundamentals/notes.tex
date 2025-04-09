@@ -99,20 +99,46 @@ However, it is important to use transparency judiciously, as excessive
 transparency can make graphs difficult to read.
 
 \noindent \textbf{Axes and Coordinates}
-\noindent Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.
-\noindent log scales: semilog, loglog. Symmetric log scales: logit, log.
-\noindent polar coordinates: useful for circular data.
+Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.
+log scales: semilog, loglog. Symmetric log scales: logit, log.
+polar coordinates: useful for circular data.
 
 \noindent \textbf{Facets and Layers}
-\noindent Facets and layers: ways of crating graphs with multiple geoms.
+acets and layers: ways of crating graphs with multiple geoms.
 \textbf{Distinct layers} superimposed on the same set of coords.
 \textbf{Distinct facets} on separate sets of coords.
 
 \noindent \textbf{Communicating Uncertainty}
-\noindent \textbf{Communicating Uncertainty}:
 
 
 \subsection*{Linear Algebra}
-\noindent (Empty section as of now)
+
+\noindent \textbf{Weighted Sums of Vectors}
+$\lambda_1 \mathbf{x}_1 + \lambda_2 \mathbf{x}_2 + \cdots + \lambda_n \mathbf{x}_n$
+\textbf{Linear interpolation}
+$lerp(x_1, x_2, \alpha) = (1 - \alpha)x_1 + (\alpha)x_2$
+
+\noindent \textbf{Norms}
+$||x||_p = {(\sum_{i=1}^{n} |x_i|^p)}^{\frac{1}{p}}$
+$||x||_\infty = \max_{i=1}^{n} |x_i|$
+$||x||_{-\infty} = \min_{i=1}^{n} |x_i|$
+\textbf{Normalisation} $x' = \frac{x}{||x||_p}$
+
+\noindent \textbf{Cosine Distance}
+$\cos \theta = \frac{\mathbf{x} \cdot \mathbf{y}}{||\mathbf{x}|| \, ||\mathbf{y}||}$
+
+\noindent \textbf{Variance}
+$\sigma^2 = \frac{1}{N - 1} \sum_{i=0}^{N-1} {(x_i - \mu)}^2$
+
+\noindent \textbf{Covariance Matrices}.
+We compute the covariance of every dimension with every other dimension.
+$\Sigma_{ij} = \frac{1}{N - 1} \sum_{k=1}^{N} (X_{ki} - \mu_i)(X_{kj} - \mu_j)$.
+You can also use $np.cov$.
+
+
+
+
+
+
 
 \end{document}

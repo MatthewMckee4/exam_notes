@@ -331,4 +331,52 @@ Routers signal congestion before queues overflow.
 Time packets spend in queues.
 Time packets spend propagating down links between routers.
 
+
+\subsection*{Real-time and Interactive Applications}
+
+% 7a
+\noindent \textbf{Real-time Media Over The Internet}.
+\textbf{Real-time Traffic} must be delivered by a certain time, must be loss tolerant.
+For streaming this may mean that the content takes a few seconds to load but is smooth once it starts.
+Trade-off between frame rate and frame quality.
+Interactive converencing has tight latency bounds.
+One-way mouth-to-ear delay ~150ms maximum for telephony.
+Video converencing want to lip-sync audio and video.
+Audio should be no more than 15ms ahead or 45ms behind.
+Speech coding data rate can be 10s of kbps, but should be ~100ms.
+Video frame rate can be between 25 and 60fps.
+Many transfers are elastic - faster is better, but it doesn't matter what rate the congestion control selects.
+Real-time traffic is inelasitc, has a minimum and maximum rate.
+Reserving network capacity makes using the network more expensive.
+
+% 7b
+\noindent \textbf{Interactive Applications}
+Frames of media data are captured periodically
+Codec compresses media frames
+Compressed frames fragmented into packets
+Transmitted using RTP inside UDP packets
+RTP protocol adds timing and sequencing, source identification, payload identification
+Transmitted over the network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}

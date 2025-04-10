@@ -113,6 +113,8 @@ acets and layers: ways of crating graphs with multiple geoms.
 
 \subsection*{Linear Algebra}
 
+% Week 4
+
 \noindent \textbf{Weighted Sums of Vectors}
 $\lambda_1 \mathbf{x}_1 + \lambda_2 \mathbf{x}_2 + \cdots + \lambda_n \mathbf{x}_n$
 \textbf{Linear interpolation}
@@ -136,7 +138,88 @@ $\Sigma_{ij} = \frac{1}{N - 1} \sum_{k=1}^{N} (X_{ki} - \mu_i)(X_{kj} - \mu_j)$.
 You can also use $np.cov$.
 
 
+% Week 5
 
+\noindent \textbf{Adjacency Matrices} square matrix of $|V| \times |V|$ size (where $|V| =$ vertices) where no edge from $V_i$ to $V_j$ means 0 and existing edges mean 1
+\textbf{Out-degree} sum across the rows
+\textbf{In-degree} sum across the columns
+\textbf{Symmetric matrix} means an undirected graph
+directed graph can be turned into an undirected one using: $A` = A + A^T$.
+The Laplacian matrix of a graph is $L = D - A$, where $D$ is the degree matrix and $A$ is the adjacency matrix.
+$D_{ii} = \sum_{j=1}^{|V|} A_{ij}$
+\textbf{A Sparse Matrix} is a matrix with a large number of zero elements, the oppisite is a \textbf{Dense Matrix}.
+\textbf{A Stochastic Matrix} is a square matrix of non-negative numbers with each row summing to 1.
+\textbf{A Doubly Stochastic Matrix} is a square matrix of non-negative numbers with each row and column summing to 1.
+\textbf{Eigenvector} of A is a vector that is only scaled when is applied to it, not rotated.
+\textbf{Eigenvalue} of A is how much the eigenvector is scaled by when is applied to it.
+$A\vec{x} = \lambda  \vec{x}$.
+\textbf{Power Iteration}
+$\vec{x_n} = \frac{A \vec{x_{n-1}}}{\|A\vec{x_{n-1}}\|_\infty}$.
+$evals, evecs = np.linalg.eigh(A)$.
+The \textbf{eigenspectrum} is just the sequence of absolute eigenvalues, ordered by magnitude.
+
+\noindent \textbf{Principle Components Analysis}
+The eigenvectors of the covariance matrix are called the \textbf{principal components}, and they tell us the
+directions in which the data varies most.
+The direction of principal component $i$ is given by the eigenvector $\vec{x}_i$, and the length of the
+component is given by $\sqrt{\lambda_i}$.
+
+\noindent \textbf{The Trace} of a matrix is the sum of its diagonal elements.
+\textbf{The Determinant} of a matrix is the product of the eigenvalues: $\text{det}(A) = \prod_{i=1}^n \lambda_i$
+
+\noindent \textbf{Positive Definite Matrices}
+A matrix is positive definite if all its eigenvalues are greater than zero: $\lambda_i > 0$.
+
+\noindent \textbf{Positive Semi-Definite Matrices}
+A matrix is positive semi-definite if all its eigenvalues are non-negative: $\lambda_i \geq 0$.
+
+\noindent A positive definite mathrix has the property $\vec{x}^T A \vec{x} > 0$ for all nonzero vectors $\vec{x}$.
+This tells us that the dot product of $\vec{x}$ with $A \vec{x}$ must be positive
+(N.B. $A \vec{x}$ is the vector obtained by transforming $\vec{x}$ with $A$).
+This can only happen if the angle $\theta$ between $\vec{x}$ and $A \vec{x}$ is less than $90^\circ$,
+
+\noindent Eigenvectors exist only for square matrices.
+A matrix $A$ transforms a general vector by rotating and scaling it.
+However, the eigenvectors of $A$ are special because they can only be scaled, not rotated by the transform.
+The eigenvalues of $A$ are the scaling factors $\lambda_i$ that correspond to each unit eigenvector $\vec{x}_i$.
+Eigendecomposition is the process of breaking a matrix down into its constituent eigenvalues
+and eigenvectors. These serve as a compact summary of the matrix.
+The eigenspectrum is just the list of (absolute) eigenvalues of a matrix, in rank order, largest first.
+If we have a complete set of eigenvectors and eigenvalues, we can reconstruct the matrix.
+We can approximate a large matrix with a few leading eigenvectors; this is a simplified or
+truncated approximation to the original matrix.
+If we repeatedly apply a matrix to some vector, the vector will be stretched more and more
+along the largest eigenvectors.
+
+\noindent \textbf{An orthogonal matrix} is a square matrix with orthonormal columns, $A^T = A^{-1}$.
+
+\noindent \textbf{Key Algorithm I\@: Singular Value Decomposition}
+A general approach to decomposing any matrix A.
+$A = U \Sigma V^T$
+
+\noindent $U$ is a \textbf{square unitary mxn matrix}, whose columns contain the left singular vectors,
+$V$ is an \textbf{square unitary nxn matrix}, whose columns contain the right singular vectors,
+$\Sigma$ is a \textbf{diagonal mxn matrix}, whose diagonal contains the singular values
+
+\noindent A \textbf{unitary matrix} is one whose conjugate transpose is equal to its inverse.
+The SVD is the same as:
+Taking the eigenvectors of $A^T A$ to get $U$
+Taking the square root of the absolute value of the eigenvalues $\lambda_i$ of $A^T A$ to get $\Sigma_i = \sqrt{\lambda_i}$
+Taking the eigenvectors of $A A^T$ to get $V^T$
+$A^n = V \Sigma^n U^T$
+
+\noindent \textbf{Pseudo-inverse}
+We can also pseudo-inverse a matrix A+ even if A is not square.
+$A^+ = V \Sigma^{-1} U^T$
+
+\noindent the \textbf{Rank} of a matrix is the number of non-zero singular values,
+or the number of linearly independent rows or columns.
+
+\noindent The \textbf{condition number} of a matrix is the ratio of the largest singular value to the smallest.
+
+\noindent \textbf{Whitening} removes all linear correlations within a dataset.
+$X^{\text w} = (X - \vec{\mu}) \Sigma^{-1/2}$ where $\vec{\mu}$ is the mean vector, i.e. a row vector
+containing the mean of each column in $X$, and $\Sigma$ is the covariance matrix.
 
 
 

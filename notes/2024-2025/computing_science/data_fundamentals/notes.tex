@@ -12,93 +12,83 @@
 
 \subsection*{Arrays}
 
-\subsubsection*{Basic Concepts}
-2 $\times$ 3 means 2 rows, 3 columns.  
-Rank 1 tensor is 1D array.  
-empty, zeros, ones, full.  
-arange (start, stop, step).  
-concatenate to join along existing dimension.  
-stack to stack up arrays along new dimension.  
-Tiling to repeat an array.  
+\noindent \textbf{Basic Concepts}
+2 $\times$ 3 means 2 rows, 3 columns.
+Rank 1 tensor is 1D array.
+concatenate to join along existing dimension.
+stack to stack up arrays along new dimension.
+Tiling to repeat an array.
 
-\subsubsection*{Broadcasting}
-Broadcasting:  
-Repeat and pad.  
-(2, 3), accepted are (2, 3), (1, 3), (2, 1), (3,).  
+\noindent \textbf{Broadcasting}
+Broadcasting (x, y) with (x, y), (1, y), (x, 1), (y,).
 
-\subsubsection*{Reduction and Accumulation}
-Reduction: apply a function to reduce the array to a single value.  
-or with axis to reduce along a specific axis.  
+\noindent \textbf{Reduction and Accumulation}
+Reduction: apply a function to reduce the array to a single value.
+or with axis to reduce along a specific axis.
 Accumulate: apply a function to reduce the array to a single value.
 
-\subsection*{NumPy Functions}
+% TODO: Probably can remove this section, or at least reduce it.
+\noindent \textbf{NumPy Functions}
 \begin{itemize}
     \item \texttt{np.loadtxt}, \texttt{np.savetxt}, \texttt{np.zeros}, \texttt{np.ones}, \texttt{np.full}, \texttt{np.empty}, \texttt{np.zeros\_like}, \texttt{np.ones\_like}, \texttt{np.full\_like}, \texttt{np.empty\_like}, \texttt{np.arange}, \texttt{np.linspace}, \texttt{np.array}, \texttt{np.meshgrid}
-    \item \texttt{np.logical\_and}, \texttt{np.logical\_or}, \texttt{np.logical\_not}
-    \item \texttt{np.any}, \texttt{np.all}, \texttt{np.prod}, \texttt{np.min}, \texttt{np.max}, \texttt{np.sum}, \texttt{np.mean}, \texttt{np.std}
-    \item \texttt{np.cumprod}, \texttt{np.cumsum}, \texttt{np.diff}, \texttt{np.gradient}
     \item \texttt{np.random.uniform}, \texttt{np.random.normal}, \texttt{np.random.randint}, \texttt{np.random.choice}, \texttt{np.random.permutation}
     \item \texttt{np.tile}, \texttt{np.transpose}, \texttt{x.T}, \texttt{np.stack}, \texttt{np.concatenate}, \texttt{np.squeeze}, \texttt{np.reshape}, \texttt{np.einsum}, \texttt{np.ravel}, \texttt{np.swapaxes}, \texttt{np.rollaxes}
-    \item \texttt{np.isinf}, \texttt{np.isnan}, \texttt{np.isfinite}, \texttt{np.nan}, \texttt{np.inf}, \texttt{np.allclose}, \texttt{np.frexp}
-    \item \texttt{np.argmin}, \texttt{np.argmax}, \texttt{np.argsort}, \texttt{np.sort}, \texttt{np.nonzero}, \texttt{np.where}
-    \item \texttt{np.dot}, \texttt{np.inner}, \texttt{np.outer}
     \item \texttt{np.minimum}, \texttt{np.maximum}, \texttt{np.add}, \texttt{np.subtract}, \texttt{np.multiply}, \texttt{np.log}, \texttt{np.exp}, \texttt{np.sin}, \texttt{np.cos}, \texttt{np.tan}, \texttt{np.arcsin}, \texttt{np.arccos}, \texttt{np.tanh}
 \end{itemize}
 
-np.concatenate((x, y), axis=0): join arrays along existing axis (0 -> vertical, 1 -> horizontal).
 
 \subsection*{Floats}
 
-\subsubsection*{Float Exceptions}
-Float exceptions:  
-Invalid operation, divide by zero, overflow, underflow, inexact.  
-np.allclose.  
+\noindent \textbf{Float Exceptions}
+Float exceptions:
+Invalid operation, divide by zero, overflow, underflow, inexact.
+np.allclose.
 
-\subsubsection*{Stride and Representation}
-Stride: number of bytes between each element in an axis.  
-float = sign * 2\^{exponent} * 1.mantissa  
-dope vector:  
-numpy arrays hold dopy vectors: stiding information.  
+\noindent \textbf{Stride and Representation}
+Stride: number of bytes between each element in an axis.
+float = sign * 2\^{exponent} * 1.mantissa
+dope vector:
+numpy arrays hold dopy vectors: stiding information.
 
-\subsubsection*{Rank and Dimensions}
-Rank preserving: The number of dimensions is the same.  
-Rank reducing: The number of dimensions is reduced.  
-Rank promoting: The number of dimensions is increased.  
-Add singleton dimensions: x[:, np.newaxis]  
-Remove singleton dimensions: np.squeeze (x)  
-Elided axes: [0, \ldots, 4]  
-Swapping and rearranging: np.swapaxes, np.rollaxis, np.moveaxis, np.transpose  
+\noindent \textbf{Rank and Dimensions}
+Rank preserving: The number of dimensions is the same.
+Rank reducing: The number of dimensions is reduced.
+Rank promoting: The number of dimensions is increased.
+Add singleton dimensions: x[:, np.newaxis]
+Remove singleton dimensions: np.squeeze (x)
+Elided axes: [0, \ldots, 4]
+Swapping and rearranging: np.swapaxes, np.rollaxis, np.moveaxis, np.transpose
 Einsum: Einstein summation convention. Used to reorder high-dimensional arrays.
 
 \subsection*{Scientific Visualisation}
 
-\subsubsection*{Basic Terminology}
-A \textbf{stat} computes statistics from data, such as means (mean, median, max, min,  etc.)  
-A \textbf{mapping} transforms data attributes into visual values.  
-A \textbf{scale} specifies how units are transformed.  
-A \textbf{coord} system connects mapped data onto points on a plane.  
-A \textbf{guide} provides visual references like tick marks, labels, and legends to explain the mapping's meaning.  
-A \textbf{geom} is the geometric representation of mapped data.  
-A \textbf{layer} consists of one set of geoms with one mapping on one coordinate system, and multiple layers can be overlaid.  
-A \textbf{facet} shows a different view of the same dataset on a separate coordinate system.  
-A \textbf{figure} is a collection of one or more facets. Finally.  
+\noindent \textbf{Basic Terminology}
+A \textbf{stat} computes statistics from data, such as means (mean, median, max, min,  etc.)
+A \textbf{mapping} transforms data attributes into visual values.
+A \textbf{scale} specifies how units are transformed.
+A \textbf{coord} system connects mapped data onto points on a plane.
+A \textbf{guide} provides visual references like tick marks, labels, and legends to explain the mapping's meaning.
+A \textbf{geom} is the geometric representation of mapped data.
+A \textbf{layer} consists of one set of geoms with one mapping on one coordinate system, and multiple layers can be overlaid.
+A \textbf{facet} shows a different view of the same dataset on a separate coordinate system.
+A \textbf{figure} is a collection of one or more facets. Finally.
 A \textbf{caption} explains the visualization to the reader.
 
-\noindent Avoid rescaled units. Facet: different view of the same dataset.  
+\noindent Avoid rescaled units. Facet: different view of the same dataset.
 Regression: fit a line to the data. Smoothing: fit a curve to the data.
 
-\subsubsection*{Geoms and Aesthetics}
-\noindent Geoms: markers: geoms that represent bare points.  
-Colour changes: percaptually uniform, monotonic brightness.  
+\noindent \textbf{Geoms and Aesthetics}
+\noindent Geoms: markers: geoms that represent bare points.
+Colour changes: percaptually uniform, monotonic brightness.
 
-Geometric representations, or \textbf{geoms}, that connect points together should be used if it makes sense to ask what is between two data points.  
-\textbf{Line styles} can have variable thickness, variable color, and dash patterns to enhance the visual representation of the data.  
+\noindent Geometric representations, or \textbf{geoms}, that connect points together should be used if it makes sense to ask what is between two data points.
+\textbf{Line styles} can have variable thickness, variable color, and dash patterns to enhance the visual representation of the data.
 
-\noindent For example, the staircase plot is useful when we know that the value cannot have changed between measurements (e.g., in a coin toss scenario).  
-This type of plot connects points but keeps the value fixed until a new data point is observed.  
+\noindent For example, the staircase plot is useful when we know that the value cannot have changed between measurements (e.g., in a coin toss scenario).
+This type of plot connects points but keeps the value fixed until a new data point is observed.
 Conversely, if measurements are naturally discrete, a bar chart may be more suitable to represent the data effectively.
 
-\subsubsection*{Transparency (Alpha)}
+\noindent \textbf{Transparency (Alpha)}
 \noindent A \textbf{geom} can be rendered with different levels of transparency,
 referred to as \textbf{alpha} (equivalent to opacity) or
 \textbf{transparency} (the inverse of opacity).
@@ -108,21 +98,130 @@ while maintaining visibility of others.
 However, it is important to use transparency judiciously, as excessive
 transparency can make graphs difficult to read.
 
-\subsubsection*{Axes and Coordinates}
-\noindent Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.  
-\noindent log scales: semilog, loglog. Symmetric log scales: logit, log.  
-\noindent polar coordinates: useful for circular data.
+\noindent \textbf{Axes and Coordinates}
+Axis limits specify a range in data units which are then mapped onto the available space in the figure in visual units.
+log scales: semilog, loglog. Symmetric log scales: logit, log.
+polar coordinates: useful for circular data.
 
-\subsubsection*{Facets and Layers}
-\noindent Facets and layers: ways of crating graphs with multiple geoms.  
-\textbf{Distinct layers} superimposed on the same set of coords.  
+\noindent \textbf{Facets and Layers}
+acets and layers: ways of crating graphs with multiple geoms.
+\textbf{Distinct layers} superimposed on the same set of coords.
 \textbf{Distinct facets} on separate sets of coords.
 
-\subsubsection*{Communicating Uncertainty}
-\noindent \textbf{Communicating Uncertainty}:
+\noindent \textbf{Communicating Uncertainty}
 
 
 \subsection*{Linear Algebra}
-\noindent (Empty section as of now)
+
+% Week 4
+
+\noindent \textbf{Weighted Sums of Vectors}
+$\lambda_1 \mathbf{x}_1 + \lambda_2 \mathbf{x}_2 + \cdots + \lambda_n \mathbf{x}_n$
+\textbf{Linear interpolation}
+$lerp(x_1, x_2, \alpha) = (1 - \alpha)x_1 + (\alpha)x_2$
+
+\noindent \textbf{Norms}
+$||x||_p = {(\sum_{i=1}^{n} |x_i|^p)}^{\frac{1}{p}}$
+$||x||_\infty = \max_{i=1}^{n} |x_i|$
+$||x||_{-\infty} = \min_{i=1}^{n} |x_i|$
+\textbf{Normalisation} $x' = \frac{x}{||x||_p}$
+
+\noindent \textbf{Cosine Distance}
+$\cos \theta = \frac{\mathbf{x} \cdot \mathbf{y}}{||\mathbf{x}|| \, ||\mathbf{y}||}$
+
+\noindent \textbf{Variance}
+$\sigma^2 = \frac{1}{N - 1} \sum_{i=0}^{N-1} {(x_i - \mu)}^2$
+
+\noindent \textbf{Covariance Matrices}.
+We compute the covariance of every dimension with every other dimension.
+$\Sigma_{ij} = \frac{1}{N - 1} \sum_{k=1}^{N} (X_{ki} - \mu_i)(X_{kj} - \mu_j)$.
+You can also use $np.cov$.
+
+
+% Week 5
+
+\noindent \textbf{Adjacency Matrices} square matrix of $|V| \times |V|$ size (where $|V| =$ vertices) where no edge from $V_i$ to $V_j$ means 0 and existing edges mean 1
+\textbf{Out-degree} sum across the rows
+\textbf{In-degree} sum across the columns
+\textbf{Symmetric matrix} means an undirected graph
+directed graph can be turned into an undirected one using: $A` = A + A^T$.
+The Laplacian matrix of a graph is $L = D - A$, where $D$ is the degree matrix and $A$ is the adjacency matrix.
+$D_{ii} = \sum_{j=1}^{|V|} A_{ij}$
+\textbf{A Sparse Matrix} is a matrix with a large number of zero elements, the oppisite is a \textbf{Dense Matrix}.
+\textbf{A Stochastic Matrix} is a square matrix of non-negative numbers with each row summing to 1.
+\textbf{A Doubly Stochastic Matrix} is a square matrix of non-negative numbers with each row and column summing to 1.
+\textbf{Eigenvector} of A is a vector that is only scaled when is applied to it, not rotated.
+\textbf{Eigenvalue} of A is how much the eigenvector is scaled by when is applied to it.
+$A\vec{x} = \lambda  \vec{x}$.
+\textbf{Power Iteration}
+$\vec{x_n} = \frac{A \vec{x_{n-1}}}{\|A\vec{x_{n-1}}\|_\infty}$.
+$evals, evecs = np.linalg.eigh(A)$.
+The \textbf{eigenspectrum} is just the sequence of absolute eigenvalues, ordered by magnitude.
+
+\noindent \textbf{Principle Components Analysis}
+The eigenvectors of the covariance matrix are called the \textbf{principal components}, and they tell us the
+directions in which the data varies most.
+The direction of principal component $i$ is given by the eigenvector $\vec{x}_i$, and the length of the
+component is given by $\sqrt{\lambda_i}$.
+
+\noindent \textbf{The Trace} of a matrix is the sum of its diagonal elements.
+\textbf{The Determinant} of a matrix is the product of the eigenvalues: $\text{det}(A) = \prod_{i=1}^n \lambda_i$
+
+\noindent \textbf{Positive Definite Matrices}
+A matrix is positive definite if all its eigenvalues are greater than zero: $\lambda_i > 0$.
+
+\noindent \textbf{Positive Semi-Definite Matrices}
+A matrix is positive semi-definite if all its eigenvalues are non-negative: $\lambda_i \geq 0$.
+
+\noindent A positive definite mathrix has the property $\vec{x}^T A \vec{x} > 0$ for all nonzero vectors $\vec{x}$.
+This tells us that the dot product of $\vec{x}$ with $A \vec{x}$ must be positive
+(N.B. $A \vec{x}$ is the vector obtained by transforming $\vec{x}$ with $A$).
+This can only happen if the angle $\theta$ between $\vec{x}$ and $A \vec{x}$ is less than $90^\circ$,
+
+\noindent Eigenvectors exist only for square matrices.
+A matrix $A$ transforms a general vector by rotating and scaling it.
+However, the eigenvectors of $A$ are special because they can only be scaled, not rotated by the transform.
+The eigenvalues of $A$ are the scaling factors $\lambda_i$ that correspond to each unit eigenvector $\vec{x}_i$.
+Eigendecomposition is the process of breaking a matrix down into its constituent eigenvalues
+and eigenvectors. These serve as a compact summary of the matrix.
+The eigenspectrum is just the list of (absolute) eigenvalues of a matrix, in rank order, largest first.
+If we have a complete set of eigenvectors and eigenvalues, we can reconstruct the matrix.
+We can approximate a large matrix with a few leading eigenvectors; this is a simplified or
+truncated approximation to the original matrix.
+If we repeatedly apply a matrix to some vector, the vector will be stretched more and more
+along the largest eigenvectors.
+
+\noindent \textbf{An orthogonal matrix} is a square matrix with orthonormal columns, $A^T = A^{-1}$.
+
+\noindent \textbf{Key Algorithm I\@: Singular Value Decomposition}
+A general approach to decomposing any matrix A.
+$A = U \Sigma V^T$
+
+\noindent $U$ is a \textbf{square unitary mxn matrix}, whose columns contain the left singular vectors,
+$V$ is an \textbf{square unitary nxn matrix}, whose columns contain the right singular vectors,
+$\Sigma$ is a \textbf{diagonal mxn matrix}, whose diagonal contains the singular values
+
+\noindent A \textbf{unitary matrix} is one whose conjugate transpose is equal to its inverse.
+The SVD is the same as:
+Taking the eigenvectors of $A^T A$ to get $U$
+Taking the square root of the absolute value of the eigenvalues $\lambda_i$ of $A^T A$ to get $\Sigma_i = \sqrt{\lambda_i}$
+Taking the eigenvectors of $A A^T$ to get $V^T$
+$A^n = V \Sigma^n U^T$
+
+\noindent \textbf{Pseudo-inverse}
+We can also pseudo-inverse a matrix A+ even if A is not square.
+$A^+ = V \Sigma^{-1} U^T$
+
+\noindent the \textbf{Rank} of a matrix is the number of non-zero singular values,
+or the number of linearly independent rows or columns.
+
+\noindent The \textbf{condition number} of a matrix is the ratio of the largest singular value to the smallest.
+
+\noindent \textbf{Whitening} removes all linear correlations within a dataset.
+$X^{\text w} = (X - \vec{\mu}) \Sigma^{-1/2}$ where $\vec{\mu}$ is the mean vector, i.e. a row vector
+containing the mean of each column in $X$, and $\Sigma$ is the covariance matrix.
+
+
+
 
 \end{document}

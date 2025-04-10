@@ -1,110 +1,96 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
-\usepackage[margin=2px]{geometry}
-\title{Data Fundamentals}
+\usepackage[margin=8mm]{geometry}
+\title{NumPy Function Cheatsheet}
 \author{}
 \date{}
 
 \begin{document}
 
-\small
+\scriptsize
 
-\subsection*{NumPy Functions}
+\section*{NumPy Function Cheatsheet}
+
+\subsubsection*{Array Creation and File I/O}
 \begin{itemize}
-    % File I/O and array creation
     \item \texttt{np.loadtxt(fname)} -- Load data from a text file
     \item \texttt{np.savetxt(fname, array)} -- Save array to a text file
     \item \texttt{np.zeros((3, 3))} -- Create a 3x3 array of zeros
     \item \texttt{np.ones((2, 4))} -- Create a 2x4 array of ones
     \item \texttt{np.full((2, 2), 7)} -- Create 2x2 array filled with 7s
     \item \texttt{np.empty((2, 3))} -- Create uninitialized 2x3 array
-    \item \texttt{np.zeros\_like(x)} -- Create zero array with same shape as \texttt{x}
-    \item \texttt{np.ones\_like(x)} -- Create ones array with same shape as \texttt{x}
-    \item \texttt{np.full\_like(x, 3)} -- Create array filled with 3s, same shape as \texttt{x}
-    \item \texttt{np.empty\_like(x)} -- Create uninitialized array like \texttt{x}
-    \item \texttt{np.arange(0, 10, 2)} -- Array: [0, 2, 4, 6, 8]
-    \item \texttt{np.linspace(0, 1, 5)} -- Array: [0. , 0.25, 0.5 , 0.75, 1.]
+    \item \texttt{np.zeros\_like(x)}, \texttt{np.ones\_like(x)}, \texttt{np.full\_like(x, 3)}, \texttt{np.empty\_like(x)}
+    \item \texttt{np.arange(0, 10, 2)} -- Evenly spaced values in interval
+    \item \texttt{np.linspace(0, 1, 5)} -- 5 evenly spaced values from 0 to 1
     \item \texttt{np.array([1, 2, 3])} -- Create array from list
-    \item \texttt{np.meshgrid(x, y)} -- Coordinate matrices from coordinate vectors
+    \item \texttt{np.meshgrid(x, y)} -- Create coordinate matrices from vectors
+\end{itemize}
 
-    % Logical operations
-    \item \texttt{np.logical\_and(a > 0, a < 5)} -- Element-wise logical AND
-    \item \texttt{np.logical\_or(a == 0, a == 1)} -- Element-wise logical OR
-    \item \texttt{np.logical\_not(a)} -- Element-wise logical NOT
+\subsubsection*{Logical Operations}
+\begin{itemize}
+    \item \texttt{np.logical\_and(a > 0, a < 5)} -- Element-wise AND
+    \item \texttt{np.logical\_or(a == 0, a == 1)} -- Element-wise OR
+    \item \texttt{np.logical\_not(a)} -- Element-wise NOT
+\end{itemize}
 
-    % Aggregations
-    \item \texttt{np.any(a > 10)} -- True if any element > 10
-    \item \texttt{np.all(a > 0)} -- True if all elements > 0
-    \item \texttt{np.prod(a)} -- Product of all elements
-    \item \texttt{np.min(a)} -- Minimum value
-    \item \texttt{np.max(a)} -- Maximum value
-    \item \texttt{np.sum(a)} -- Sum of elements
-    \item \texttt{np.mean(a)} -- Mean of elements
-    \item \texttt{np.std(a)} -- Standard deviation
+\subsubsection*{Aggregation and Statistics}
+\begin{itemize}
+    \item \texttt{np.any(a > 10)}, \texttt{np.all(a > 0)}
+    \item \texttt{np.prod(a)}, \texttt{np.min(a)}, \texttt{np.max(a)}
+    \item \texttt{np.sum(a)}, \texttt{np.mean(a)}, \texttt{np.std(a)}
+\end{itemize}
 
-    % Cumulative and diff
-    \item \texttt{np.cumprod(a)} -- Cumulative product
-    \item \texttt{np.cumsum(a)} -- Cumulative sum
-    \item \texttt{np.diff(a)} -- Differences between adjacent elements
-    \item \texttt{np.gradient(a)} -- Numerical gradient
+\subsubsection*{Cumulative Functions and Differences}
+\begin{itemize}
+    \item \texttt{np.cumprod(a)}, \texttt{np.cumsum(a)}
+    \item \texttt{np.diff(a)}, \texttt{np.gradient(a)}
+\end{itemize}
 
-    % Random
-    \item \texttt{np.random.uniform(0, 1, 5)} -- 5 random numbers in [0,1)
-    \item \texttt{np.random.normal(0, 1, (2, 2))} -- 2x2 array of normal samples
-    \item \texttt{np.random.randint(0, 10, 3)} -- 3 random ints in [0,10)
-    \item \texttt{np.random.choice([1, 2, 3])} -- Randomly pick one from list
-    \item \texttt{np.random.permutation(5)} -- Random permutation of [0, 1, 2, 3, 4]
+\subsubsection*{Random Number Generation}
+\begin{itemize}
+    \item \texttt{np.random.uniform(0, 1, 5)} -- Uniform [0, 1)
+    \item \texttt{np.random.normal(0, 1, (2, 2))} -- Normal distribution
+    \item \texttt{np.random.randint(0, 10, 3)} -- Random ints in [0,10)
+    \item \texttt{np.random.choice([1, 2, 3])}, \texttt{np.random.permutation(5)}
+\end{itemize}
 
-    % Array manipulation
-    \item \texttt{np.tile(a, (2, 1))} -- Repeat array \texttt{a} 2 times along rows
-    \item \texttt{np.transpose(a)} -- Transpose of array \texttt{a}
-    \item \texttt{x.T} -- Shortcut for transpose
-    \item \texttt{np.stack([a, b], axis=0)} -- Stack arrays along new axis
-    \item \texttt{np.concatenate((a, b), axis=0)} -- Join arrays
-    \item \texttt{np.squeeze(a)} -- Remove single-dimensional entries
-    \item \texttt{np.reshape(a, (2, 5))} -- Change shape of array
-    \item \texttt{np.einsum('i,j->ij', a, b)} -- Einstein summation convention
-    \item \texttt{np.ravel(a)} -- Flatten array
-    \item \texttt{np.swapaxes(a, 0, 1)} -- Swap two axes
-    \item \texttt{np.rollaxes(a, 2, 0)} -- Roll axes to a new position
+\subsubsection*{Array Manipulation}
+\begin{itemize}
+    \item \texttt{np.tile(a, (2, 1))}, \texttt{np.transpose(a)}, \texttt{x.T}
+    \item \texttt{np.stack([a, b], axis=0)}, \texttt{np.concatenate((a, b), axis=0)}
+    \item \texttt{np.squeeze(a)}, \texttt{np.reshape(a, (2, 5))}, \texttt{np.ravel(a)}
+    \item \texttt{np.swapaxes(a, 0, 1)}, \texttt{np.rollaxes(a, 2, 0)}
+    \item \texttt{np.einsum('i,j->ij', a, b)} -- Einstein summation
+\end{itemize}
 
-    % NaN / inf checks
-    \item \texttt{np.isinf(a)} -- Check for infinity
-    \item \texttt{np.isnan(a)} -- Check for NaN
-    \item \texttt{np.isfinite(a)} -- Check for finite numbers
-    \item \texttt{np.nan} -- Represents NaN
-    \item \texttt{np.inf} -- Represents infinity
-    \item \texttt{np.allclose(a, b)} -- Check if arrays are element-wise close
-    \item \texttt{np.frexp(x)} -- Return mantissa and exponent
+\subsubsection*{Special Values and Comparisons}
+\begin{itemize}
+    \item \texttt{np.isinf(a)}, \texttt{np.isnan(a)}, \texttt{np.isfinite(a)}
+    \item \texttt{np.nan}, \texttt{np.inf}, \texttt{np.allclose(a, b)}, \texttt{np.frexp(x)}
+\end{itemize}
 
-    % Indexing and conditionals
-    \item \texttt{np.argmin(a)} -- Index of min value
-    \item \texttt{np.argmax(a)} -- Index of max value
-    \item \texttt{np.argsort(a)} -- Indices that would sort array
-    \item \texttt{np.sort(a)} -- Sort array
-    \item \texttt{np.nonzero(a)} -- Indices of non-zero elements
-    \item \texttt{np.where(a > 0, 1, 0)} -- Conditional: if >0 return 1 else 0
+\subsubsection*{Indexing and Conditionals}
+\begin{itemize}
+    \item \texttt{np.argmin(a)}, \texttt{np.argmax(a)}
+    \item \texttt{np.argsort(a)}, \texttt{np.sort(a)}
+    \item \texttt{np.nonzero(a)}, \texttt{np.where(a > 0, 1, 0)}
+\end{itemize}
 
-    % Dot products
+\subsubsection*{Linear Algebra Operations}
+\begin{itemize}
     \item \texttt{np.dot(a, b)} -- Dot product
     \item \texttt{np.inner(a, b)} -- Inner product
     \item \texttt{np.outer(a, b)} -- Outer product
+\end{itemize}
 
-    % Elementwise math
-    \item \texttt{np.minimum(a, b)} -- Element-wise min
-    \item \texttt{np.maximum(a, b)} -- Element-wise max
-    \item \texttt{np.add(a, b)} -- Element-wise addition
-    \item \texttt{np.subtract(a, b)} -- Element-wise subtraction
-    \item \texttt{np.multiply(a, b)} -- Element-wise multiplication
-    \item \texttt{np.log(a)} -- Natural log
-    \item \texttt{np.exp(a)} -- Exponential
-    \item \texttt{np.sin(a)} -- Sine
-    \item \texttt{np.cos(a)} -- Cosine
-    \item \texttt{np.tan(a)} -- Tangent
-    \item \texttt{np.arcsin(a)} -- Inverse sine
-    \item \texttt{np.arccos(a)} -- Inverse cosine
-    \item \texttt{np.tanh(a)} -- Hyperbolic tangent
+\subsubsection*{Elementwise Math Functions}
+\begin{itemize}
+    \item \texttt{np.minimum(a, b)}, \texttt{np.maximum(a, b)}
+    \item \texttt{np.add(a, b)}, \texttt{np.subtract(a, b)}, \texttt{np.multiply(a, b)}
+    \item \texttt{np.log(a)}, \texttt{np.exp(a)}
+    \item \texttt{np.sin(a)}, \texttt{np.cos(a)}, \texttt{np.tan(a)}
+    \item \texttt{np.arcsin(a)}, \texttt{np.arccos(a)}, \texttt{np.tanh(a)}
 \end{itemize}
 
 \end{document}
